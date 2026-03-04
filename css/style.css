@@ -119,16 +119,18 @@ body {
 .btn {
     display: inline-block;
     margin-top: 12px;
-    padding: 8px 16px;
-    background: #333;
+    padding: 10px 20px;
+    background: #444;       /* สีปุ่มโหมดปกติ */
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: 600;
     transition: 0.3s ease;
 }
 
 .btn:hover {
-    opacity: 0.8;
+    background: #222;       /* hover เข้มขึ้น */
+    transform: translateY(-2px);
 }
 
 /* ===============================
@@ -200,4 +202,28 @@ body.dark-mode .navbar {
         grid-template-columns: 1fr;
     }
 
+}
+/* ===============================
+   DARK MODE - NAV MENU WHITE
+================================= */
+
+body.dark-mode .nav-links {
+    background: white;   /* กล่องเมนูเป็นสีขาว */
+    border-radius: 12px;
+}
+
+body.dark-mode .nav-links a {
+    color: black;        /* ตัวหนังสือสีดำ */
+}
+
+body.dark-mode .nav-links a:hover {
+    background: #f2f2f2; /* hover เทาอ่อน */
+}
+body.dark-mode .btn {
+    background: white;
+    color: black;
+}
+
+body.dark-mode .btn:hover {
+    background: #f2f2f2;
 }
