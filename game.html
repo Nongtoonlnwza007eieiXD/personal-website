@@ -1,3 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Number Guessing Game</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/game.css">
-<script src="js/game.js" defer></script>
+</head>
+
+<body>
+
+<div class="game-container">
+
+<h2>🎮 เกมทายตัวเลข</h2>
+<p>ฉันสุ่มตัวเลขไว้ระหว่าง 1 - 100</p>
+
+<input type="number" id="guessInput" placeholder="กรอกตัวเลข">
+
+<button onclick="checkGuess()">ทาย</button>
+
+<p id="message"></p>
+
+<p>จำนวนครั้ง: <span id="attempts">0</span></p>
+
+<p>⏳ เวลา: <span id="timer">0</span> วินาที</p>
+
+<p>🏆 คะแนน: <span id="score">0</span></p>
+
+<button onclick="restartGame()" class="restart-btn">เริ่มใหม่</button>
+
+</div>
+
+<audio id="winSound">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3">
+</audio>
+
+<script src="js/game.js"></script>
+
+</body>
+</html>

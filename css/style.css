@@ -1,229 +1,353 @@
-/* ===============================
-   RESET & STRUCTURE
-================================= */
+/* ======================
+   COLOR VARIABLES
+====================== */
 
-html, body {
-    height: 100%;
-    margin: 0;
+:root{
+
+--bg:#ffffff;
+--text:#111;
+--nav:#ffffff;
+--accent:#ff8c00;
+--card:#f5f5f5;
+
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    color: #333;
+/* DARK MODE */
+
+body.dark{
+
+--bg:#0d0d0d;
+--text:#ffffff;
+--nav:#111;
+--accent:#ff9d00;
+--card:#1e1e1e;
+
 }
 
-/* ===============================
-   HEADER
-================================= */
 
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(255,255,255,0.9);
+
+/* ======================
+   GLOBAL
+====================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.site-header h1 {
-    margin: 0;
+body{
+
+font-family:Segoe UI;
+background:var(--bg);
+color:var(--text);
+
 }
 
-.toggle-btn {
-    padding: 8px 14px;
-    border: none;
-    background: #333;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
 
-.toggle-btn:hover {
-    opacity: 0.8;
-}
 
-/* ===============================
+/* ======================
    NAVBAR
-================================= */
+====================== */
 
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; /* Desktop ชิดขวา */
-    background: #444;
-}
+.navbar{
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 15px 40px;
-    gap: 30px;
-}
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: 0.3s ease;
-}
+padding:20px 70px;
 
-.nav-links a:hover {
-    background: rgba(255,255,255,0.15);
-}
+background:var(--nav);
 
-/* ===============================
-   MAIN CONTENT
-================================= */
+position:sticky;
+top:0;
 
-.main-content {
-    flex: 1;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.intro h2 {
-    margin-bottom: 10px;
-}
-
-/* ===============================
-   CARD GRID
-================================= */
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-    padding: 0 20px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 20px;
-    background: #444;       /* สีปุ่มโหมดปกติ */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    background: #222;       /* hover เข้มขึ้น */
-    transform: translateY(-2px);
-}
-
-/* ===============================
-   FOOTER
-================================= */
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: white;
-}
-
-/* ===============================
-   DARK MODE
-================================= */
-
-body.dark-mode {
-    background: #1e1e1e;
-    color: white;
-}
-
-body.dark-mode .card {
-    background: #333;
-}
-
-body.dark-mode .site-header {
-    background: #2a2a2a;
-}
-
-body.dark-mode .navbar {
-    background: #111;
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
-================================= */
-
-@media (max-width: 768px) {
-
-    .site-header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
-    }
-
-    /* เมนูมือถือให้เป็นแนวนอนในกรอบ */
-    .navbar {
-        justify-content: center;
-        padding: 10px 0;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        width: 90%;
-        background: #444;
-        border-radius: 12px;
-        padding: 12px 0;
-    }
-
-    .main-content {
-        padding: 30px 15px;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+z-index:1000;
 
 }
-/* ===============================
-   DARK MODE - NAV MENU WHITE
-================================= */
 
-body.dark-mode .nav-links {
-    background: white;   /* กล่องเมนูเป็นสีขาว */
-    border-radius: 12px;
+
+
+.logo{
+
+font-size:22px;
+font-weight:bold;
+
 }
 
-body.dark-mode .nav-links a {
-    color: black;        /* ตัวหนังสือสีดำ */
+.logo span{
+
+color:var(--accent);
+
 }
 
-body.dark-mode .nav-links a:hover {
-    background: #f2f2f2; /* hover เทาอ่อน */
-}
-body.dark-mode .btn {
-    background: white;
-    color: black;
+
+
+nav{
+
+display:flex;
+align-items:center;
+gap:30px;
+
 }
 
-body.dark-mode .btn:hover {
-    background: #f2f2f2;
+
+
+.nav-links{
+
+display:flex;
+list-style:none;
+gap:35px;
+
+}
+
+
+
+nav a{
+
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+
+position:relative;
+
+padding-bottom:5px;
+
+}
+
+
+
+/* underline animation */
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:0;
+
+width:0%;
+height:2px;
+
+background:var(--accent);
+
+transition:.3s;
+
+}
+
+
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+
+
+nav a.active::after{
+
+width:100%;
+
+}
+
+
+
+/* ======================
+   DARK MODE BUTTON
+====================== */
+
+#themeToggle{
+
+border:none;
+background:var(--accent);
+
+color:white;
+
+padding:8px 14px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+
+
+/* ======================
+   HERO
+====================== */
+
+.hero{
+
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+
+padding:100px 80px;
+
+min-height:85vh;
+
+}
+
+
+
+/* LEFT SIDE */
+
+.hero-left{
+
+max-width:550px;
+
+}
+
+
+
+.intro{
+
+color:gray;
+margin-bottom:10px;
+
+}
+
+
+
+.hero-left h1{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+
+
+.hero-left span{
+
+color:var(--accent);
+
+}
+
+
+
+.description{
+
+line-height:1.7;
+margin-bottom:30px;
+
+color:#777;
+
+}
+
+
+
+/* BUTTONS */
+
+.buttons{
+
+display:flex;
+gap:15px;
+
+}
+
+
+
+.btn{
+
+padding:12px 25px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+
+
+.primary{
+
+background:var(--accent);
+
+color:white;
+
+}
+
+
+
+.secondary{
+
+border:2px solid var(--accent);
+
+color:var(--accent);
+
+}
+
+
+
+/* ======================
+   PROFILE
+====================== */
+
+.hero-right{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+.profile-circle{
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#3a2a14,#1a1208);
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:60px;
+
+color:#ccc;
+
+}
+
+
+
+/* ======================
+   MOBILE
+====================== */
+
+@media (max-width:900px){
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+gap:50px;
+
+}
+
+.hero-left h1{
+
+font-size:40px;
+
+}
+
+.navbar{
+
+padding:20px;
+
+}
+
 }
