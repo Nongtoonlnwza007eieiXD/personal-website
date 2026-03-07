@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Number Guessing Game</title>
+
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/game.css">
+
 </head>
 
 <body>
@@ -12,9 +17,37 @@
 <div class="game-container">
 
 <h2>🎮 เกมทายตัวเลข</h2>
-<p>ฉันสุ่มตัวเลขไว้ระหว่าง 1 - 100</p>
 
-<input type="number" id="guessInput" placeholder="กรอกตัวเลข">
+<div class="rules">
+
+<h3>กติกาการเล่น</h3>
+
+<p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
+
+<p>🎯 ทายตัวเลขให้ถูกต้อง</p>
+
+<p>⏱ ยิ่งใช้เวลาน้อย คะแนนยิ่งสูง</p>
+
+<p>🔁 ยิ่งทายน้อยครั้ง คะแนนยิ่งดี</p>
+
+<p>🏆 คะแนนคำนวณจาก</p>
+
+<p><b>100 - (จำนวนครั้ง × 10) - เวลา</b></p>
+
+</div>
+
+<button id="startBtn" onclick="startGame()">เริ่มเกมกัน!!!</button>
+
+<div id="gameArea" style="display:none;">
+<p>กรุณาทายตัวเลขระหว่าง <b>1 - 100</b></p>
+
+<input 
+type="number" 
+id="guessInput" 
+placeholder="กรอกตัวเลข"
+min="1"
+max="100"
+>
 
 <button onclick="checkGuess()">ทาย</button>
 
@@ -26,15 +59,28 @@
 
 <p>🏆 คะแนน: <span id="score">0</span></p>
 
-<button onclick="restartGame()" class="restart-btn">เริ่มใหม่</button>
+<button onclick="restartGame()" class="restart-btn">
+เริ่มเกมใหม่
+</button>
+
+</div>
 
 </div>
 
 <audio id="winSound">
-<source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
 </audio>
 
-<script src="js/game.js"></script>
+<!-- แก้ path -->
+<script src="javascript/game.js"></script>
+
+<script>
+document.getElementById("guessInput")?.addEventListener("keypress", function(e){
+if(e.key === "Enter"){
+checkGuess()
+}
+})
+</script>
 
 </body>
 </html>

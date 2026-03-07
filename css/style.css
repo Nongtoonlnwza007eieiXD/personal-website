@@ -3,28 +3,22 @@
 ====================== */
 
 :root{
-
 --bg:#ffffff;
 --text:#111;
 --nav:#ffffff;
 --accent:#ff8c00;
 --card:#f5f5f5;
-
 }
 
 /* DARK MODE */
 
 body.dark{
-
 --bg:#0d0d0d;
 --text:#ffffff;
 --nav:#111;
 --accent:#ff9d00;
 --card:#1e1e1e;
-
 }
-
-
 
 /* ======================
    GLOBAL
@@ -37,317 +31,264 @@ box-sizing:border-box;
 }
 
 body{
-
-font-family:Segoe UI;
+font-family:Segoe UI, sans-serif;
 background:var(--bg);
 color:var(--text);
-
 }
-
-
 
 /* ======================
    NAVBAR
 ====================== */
 
 .navbar{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-padding:20px 70px;
-
+padding:20px 60px;
 background:var(--nav);
-
 position:sticky;
 top:0;
-
 z-index:1000;
-
 }
 
-
-
 .logo{
-
 font-size:22px;
 font-weight:bold;
-
 }
 
 .logo span{
-
 color:var(--accent);
-
 }
-
-
 
 nav{
-
 display:flex;
 align-items:center;
-gap:30px;
-
+gap:25px;
 }
-
-
 
 .nav-links{
-
 display:flex;
 list-style:none;
-gap:35px;
-
+gap:25px;
 }
 
-
-
 nav a{
-
 text-decoration:none;
 color:var(--text);
 font-weight:500;
-
 position:relative;
-
 padding-bottom:5px;
-
+font-size:15px;
 }
-
-
 
 /* underline animation */
 
 nav a::after{
-
 content:"";
-
 position:absolute;
-
 left:0;
 bottom:0;
-
 width:0%;
 height:2px;
-
 background:var(--accent);
-
 transition:.3s;
-
 }
-
-
 
 nav a:hover::after{
-
 width:100%;
-
 }
-
-
 
 nav a.active::after{
-
 width:100%;
-
 }
-
-
 
 /* ======================
    DARK MODE BUTTON
 ====================== */
 
 #themeToggle{
-
 border:none;
 background:var(--accent);
-
 color:white;
-
-padding:8px 14px;
-
+padding:6px 12px;
 border-radius:6px;
-
 cursor:pointer;
-
+font-size:14px;
 }
-
-
 
 /* ======================
    HERO
 ====================== */
 
 .hero{
-
 display:flex;
-
 justify-content:space-between;
 align-items:center;
-
-padding:100px 80px;
-
-min-height:85vh;
-
+padding:80px 120px;
+min-height:80vh;
+gap:60px;
 }
+/* LEFT */
 
-
-
-/* LEFT SIDE */
-
-.hero-left{
-
-max-width:550px;
-
+.hero-right{
+display:flex;
+align-items:center;
+justify-content:center;
 }
-
-
 
 .intro{
-
 color:gray;
 margin-bottom:10px;
-
+font-size:14px;
 }
-
-
 
 .hero-left h1{
-
-font-size:60px;
-margin-bottom:20px;
-
+font-size:48px;
+margin-bottom:15px;
 }
-
-
 
 .hero-left span{
-
 color:var(--accent);
-
 }
-
-
 
 .description{
-
 line-height:1.7;
-margin-bottom:30px;
-
-color:#777;
-
+margin-bottom:25px;
+color:#666;
+font-size:15px;
+max-width:480px;
 }
-
-
 
 /* BUTTONS */
 
 .buttons{
-
 display:flex;
 gap:15px;
-
 }
-
-
 
 .btn{
-
-padding:12px 25px;
-
+padding:10px 22px;
 border-radius:8px;
-
 text-decoration:none;
-
 font-weight:600;
-
+font-size:14px;
 }
-
-
 
 .primary{
-
 background:var(--accent);
-
 color:white;
-
 }
-
-
 
 .secondary{
-
 border:2px solid var(--accent);
-
 color:var(--accent);
-
 }
-
-
 
 /* ======================
    PROFILE
 ====================== */
 
 .hero-right{
-
 display:flex;
 align-items:center;
 justify-content:center;
-
 }
-
-
 
 .profile-circle{
-
 width:260px;
 height:260px;
-
 border-radius:50%;
-
-background:linear-gradient(135deg,#3a2a14,#1a1208);
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-font-size:60px;
-
-color:#ccc;
-
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
+.profile-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
+/* ======================
+   TABLET
+====================== */
+
+@media (max-width:900px){
+
+.navbar{
+padding:20px 30px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:70px 30px;
+}
+
+.hero-left h1{
+font-size:38px;
+}
+
+.profile-circle{
+width:220px;
+height:220px;
+}
+
+.buttons{
+justify-content:center;
+}
+
+}
 
 /* ======================
    MOBILE
 ====================== */
 
-@media (max-width:900px){
+@media (max-width:600px){
+
+.navbar{
+flex-direction:column;
+gap:12px;
+padding:15px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.nav-links{
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
 
 .hero{
-
-flex-direction:column;
-text-align:center;
-gap:50px;
-
+padding:40px 20px;
+gap:30px;
 }
 
 .hero-left h1{
-
-font-size:40px;
-
+font-size:30px;
 }
 
-.navbar{
+.description{
+font-size:14px;
+}
 
-padding:20px;
+.buttons{
+flex-direction:column;
+gap:10px;
+}
 
+.btn{
+width:100%;
+text-align:center;
+}
+
+.profile-circle{
+width:180px;
+height:180px;
 }
 
 }
