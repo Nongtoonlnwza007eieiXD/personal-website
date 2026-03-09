@@ -12,8 +12,33 @@
 
 </head>
 
-<body>
-<body class="game-bg"></body>
+<body class="game-bg">
+
+<header class="navbar">
+
+<div class="logo">Portfolio<span>.</span></div>
+
+<nav>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="game.html" class="active">Game</a></li>
+<li><a href="clock.html">Clock</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+<li>
+<button id="themeToggle">🌙</button>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
 <!-- START SCREEN -->
 <div id="startScreen">
 
@@ -24,13 +49,9 @@
 <h3>📜 กติกาการเล่น</h3>
 
 <p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
-
 <p>🎯 ทายตัวเลขให้ถูกต้อง</p>
-
 <p>⏱ ยิ่งใช้เวลาน้อย คะแนนยิ่งสูง</p>
-
 <p>🔁 ยิ่งทายน้อยครั้ง คะแนนยิ่งดี</p>
-
 <p>🏆 คะแนนคำนวณจาก</p>
 
 <p><b>100 - (จำนวนครั้ง × 10) - เวลา</b></p>
@@ -50,6 +71,7 @@
 <div class="game-container" id="gameArea" style="display:none;">
 
 <h2>🎮 เกมทายตัวเลข</h2>
+
 <h3>🏆 Leaderboard</h3>
 
 <ol id="leaderboard">
@@ -96,6 +118,7 @@ max="100"
 
 
 <script src="javascript/game.js"></script>
+<script src="javascript/theme.js"></script>
 
 <script>
 document.getElementById("guessInput").addEventListener("keypress", function(e){
