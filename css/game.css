@@ -1,73 +1,158 @@
+/* GAME CONTAINER */
+
 .game-container{
-width: 500px;
-padding: 40px;
-background: white;
-border-radius: 15px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-text-align: center;
-margin: auto;
-margin-top: 120px;
+
+width:520px;
+margin:auto;
+margin-top:120px;
+padding:40px;
+background:white;
+border-radius:20px;
+box-shadow:0 12px 35px rgba(0,0,0,0.15);
+text-align:center;
+
 }
 
-.game-container h2{
-font-size: 32px;
-margin-bottom: 10px;
+
+/* RULE BOX */
+
+.rules{
+
+background:#f9f9f9;
+padding:20px;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+margin:20px auto;
+max-width:420px;
+text-align:left;
+
 }
 
-.game-container p{
-font-size: 18px;
-}
+
+/* INPUT */
 
 #guessInput{
-width: 250px;
-padding: 10px;
-font-size: 18px;
-margin-right: 10px;
+
+width:250px;
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:2px solid #ddd;
+margin-top:10px;
+
 }
 
+#guessInput:focus{
+
+outline:none;
+border-color:#ff8c00;
+
+}
+
+
+/* BUTTON */
+
 button{
-padding: 10px 20px;
-font-size: 16px;
-border-radius: 8px;
-border: none;
-background: #444;
-color: white;
-cursor: pointer;
+
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:10px;
+background:#444;
+color:white;
+cursor:pointer;
+margin-left:10px;
+transition:0.2s;
+
 }
 
 button:hover{
-background: #222;
+
+background:#222;
+transform:scale(1.05);
+
 }
+
+
+/* RESTART BUTTON */
 
 .restart-btn{
-margin-top: 20px;
+
+margin-top:20px;
+background:#e74c3c;
+
 }
-#startBtn{
-font-size:20px;
+
+.restart-btn:hover{
+
+background:#c0392b;
+
+}
+
+
+/* START SCREEN */
+
+#startScreen{
+
+width:520px;
+margin:auto;
+margin-top:120px;
+padding:40px;
+background:white;
+border-radius:20px;
+box-shadow:0 12px 35px rgba(0,0,0,0.15);
+text-align:center;
+
+}
+
+
+/* START BUTTON */
+
+.start-btn{
+
+font-size:24px;
 padding:15px 40px;
+border:none;
+border-radius:12px;
 background:#ff8c00;
 color:white;
-border:none;
-border-radius:10px;
 cursor:pointer;
 margin-top:20px;
+transition:0.2s;
+
 }
 
-#startBtn:hover{
+.start-btn:hover{
+
 background:#ff6a00;
-}
-.rules{
-background:#f5f5f5;
-padding:15px;
-border-radius:10px;
-margin-bottom:20px;
-text-align:left;
+transform:scale(1.05);
+
 }
 
-.rules h3{
-margin-bottom:10px;
+
+/* SCORE TEXT */
+
+#message{
+
+font-size:18px;
+margin-top:15px;
+font-weight:bold;
+
 }
 
-.rules p{
-margin:4px 0;
+
+/* WIN ANIMATION */
+
+.win-animation{
+
+animation:winPop 0.6s ease;
+
+}
+
+@keyframes winPop{
+
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+
 }

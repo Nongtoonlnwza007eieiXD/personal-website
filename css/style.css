@@ -292,3 +292,30 @@ height:180px;
 }
 
 }
+.game-bg{
+height:100vh;
+margin:0;
+
+/* sunset gradient */
+background: linear-gradient(120deg,#4facfe,#00f2fe,#ff9966,#ff5e62);
+background-size:300% 300%;
+
+animation:sunsetMove 15s ease infinite;
+}
+
+/* animation เคลื่อนสี */
+@keyframes sunsetMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
