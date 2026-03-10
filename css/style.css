@@ -4,18 +4,18 @@
 
 :root{
 --bg:#ffffff;
---text:#111;
+--text:#111111;
 --nav:#ffffff;
---accent:#ff8c00;
+--accent:#e87400;
 --card:#ffffff;
---section:#f6f6f6;
+--section:#f5f5f5;
 --shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 body.dark{
 --bg:#0d0d0d;
 --text:#ffffff;
---nav:#111;
+--nav:#111111;
 --accent:#ff9d00;
 --card:#1e1e1e;
 --section:#151515;
@@ -53,7 +53,7 @@ background:var(--nav);
 position:sticky;
 top:0;
 z-index:1000;
-border-bottom:1px solid rgba(0,0,0,0.05);
+border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
 .logo{
@@ -137,9 +137,10 @@ gap:60px;
 /* LEFT */
 
 .intro{
-color:gray;
+color:#555555;
 margin-bottom:10px;
 font-size:14px;
+font-weight:500;
 }
 
 .hero-left h1{
@@ -154,13 +155,13 @@ color:var(--accent);
 .description{
 line-height:1.7;
 margin-bottom:25px;
-color:#666;
+color:#444444;
 font-size:15px;
 max-width:480px;
 }
 
 body.dark .description{
-color:#bbb;
+color:#cfcfcf;
 }
 
 /* BUTTONS */
@@ -181,7 +182,7 @@ transition:0.3s;
 
 .primary{
 background:var(--accent);
-color:white;
+color:#ffffff;
 }
 
 .primary:hover{
@@ -266,13 +267,13 @@ font-size:20px;
 }
 
 .menu-card p{
-color:#666;
+color:#444444;
 font-size:15px;
 line-height:1.6;
 }
 
 body.dark .menu-card p{
-color:#aaa;
+color:#cfcfcf;
 }
 
 /* BUTTON */
@@ -290,7 +291,7 @@ transition:0.3s;
 }
 
 .menu-btn:hover{
-background:#ffa033;
+background:#c95f00;
 transform:scale(1.05);
 }
 
