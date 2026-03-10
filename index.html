@@ -2,8 +2,13 @@
 <html lang="th">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Portfolio website of Sornsawan Jantasuwanno. Web development projects including JavaScript game, digital clock and personal profile.">
 
 <title>Sornsawan Portfolio</title>
 
@@ -11,7 +16,10 @@
 
 </head>
 
+
 <body>
+
+<!-- HEADER -->
 
 <header class="navbar">
 
@@ -19,22 +27,35 @@
 Portfolio<span>.</span>
 </div>
 
-<nav>
+<nav aria-label="Main Navigation">
 
 <ul class="nav-links">
 
-<li><a href="index.html">Home</a></li>
+<li><a href="index.html" class="active">Home</a></li>
+
 <li><a href="about.html">About</a></li>
+
 <li><a href="game.html">Game</a></li>
+
 <li><a href="clock.html">Clock</a></li>
-<li><a href="contact.html">Contact</a></li>
+
+<li><a href="about.html#contact">Contact</a></li>
+
+</ul>
 
 </nav>
 
 </header>
 
 
+
+<!-- MAIN CONTENT -->
+
+<main>
+
+
 <!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-left">
@@ -46,21 +67,39 @@ Sornsawan <span>Jantasuwanno</span>
 </h1>
 
 <p class="description">
-นักศึกษาสาขาครุศาสตร์วิศวกรรม แขนงคอมพิวเตอร์ พื้นที่สำหรับทำโปรเจควิชา Web Technology และแสดงผลงานต่างๆ 
+
+นักศึกษาสาขาครุศาสตร์วิศวกรรม แขนงคอมพิวเตอร์  
+พื้นที่สำหรับทำโปรเจควิชา Web Technology และแสดงผลงานต่างๆ  
 ที่เกี่ยวข้องกับการเขียนโปรแกรมและการพัฒนาเว็บไซต์
+
 </p>
 
 <div class="buttons">
-<a href="contact.html" class="btn primary">Contact Me</a>
+
+<a href="about.html#contact"
+class="btn primary"
+aria-label="Contact Sornsawan">
+
+Contact Me
+
+</a>
+
 </div>
 
 </div>
+
 
 
 <div class="hero-right">
 
 <div class="profile-circle">
-<img src="image/profile.jpg" alt="profile">
+
+<img
+src="image/profile.jpg"
+alt="Profile photo of Sornsawan Jantasuwanno"
+width="300"
+height="300">
+
 </div>
 
 </div>
@@ -68,14 +107,18 @@ Sornsawan <span>Jantasuwanno</span>
 </section>
 
 
-<!-- MENU SECTION -->
+
+<!-- PROJECT SECTION -->
+
 <section class="menu-section">
 
 <h2>My Projects</h2>
 
 <div class="menu-container">
 
+
 <!-- ABOUT -->
+
 <div class="menu-card">
 
 <h3>About Me</h3>
@@ -84,14 +127,20 @@ Sornsawan <span>Jantasuwanno</span>
 ประวัติส่วนตัว ข้อมูลการศึกษา และทักษะด้านการพัฒนาเว็บไซต์
 </p>
 
-<a href="about.html" class="menu-btn">
+<a href="about.html"
+class="menu-btn"
+aria-label="View about page">
+
 View About
+
 </a>
 
 </div>
 
 
+
 <!-- GAME -->
+
 <div class="menu-card">
 
 <h3>Game Project</h3>
@@ -100,14 +149,20 @@ View About
 ตัวอย่างเกมที่พัฒนาด้วย JavaScript สำหรับโปรเจควิชา Web Technology
 </p>
 
-<a href="game.html" class="menu-btn">
+<a href="game.html"
+class="menu-btn"
+aria-label="View game project">
+
 View Game
+
 </a>
 
 </div>
 
 
+
 <!-- CLOCK -->
+
 <div class="menu-card">
 
 <h3>Digital Clock</h3>
@@ -116,15 +171,35 @@ View Game
 โปรเจคนาฬิกาดิจิทัลที่สร้างด้วย HTML CSS และ JavaScript
 </p>
 
-<a href="clock.html" class="menu-btn">
+<a href="clock.html"
+class="menu-btn"
+aria-label="View digital clock project">
+
 View Clock
+
 </a>
 
 </div>
 
+
 </div>
 
 </section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>
+© 2026 Sornsawan Portfolio
+</p>
+
+</footer>
 
 
 </body>
