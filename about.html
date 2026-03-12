@@ -28,11 +28,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <ul class="nav-links">
 
+<ul class="nav-links">
+
 <li><a href="index.html">Home</a></li>
-<li><a href="about.html" class="active">About</a></li>
-<li><a href="clock.html">Clock</a></li>
+<li><a href="about.html">About</a></li>
 <li><a href="game.html">Game</a></li>
+<li><a href="clock.html">Clock</a></li>
 <li><a href="#contact">Contact</a></li>
+
+</ul>
 
 </ul>
 
@@ -53,7 +57,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 มาทำความรู้จักเกี่ยวกับตัวฉันและพื้นฐานของฉันให้มากขึ้น
 </p>
 
-
 <div class="cv-content">
 
 <div class="cv-text">
@@ -65,12 +68,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </p>
 
 <p>
-ปัจจุบันกำลังพัฒนาทักษะด้าน HTML, CSS และ JavaScript รวมถึงพื้นฐาน Networking 
+ปัจจุบันกำลังพัฒนาทักษะ HTML, CSS และ JavaScript รวมถึงพื้นฐาน Networking 
 และ Cybersecurity เพื่อเตรียมความพร้อมในการทำงานด้านเทคโนโลยีในอนาคต
 </p>
 
 </div>
-
 
 <div class="cv-text">
 
@@ -87,7 +89,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 </div>
-
 
 
 <!-- INFO -->
@@ -187,9 +188,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 เส้นทางการศึกษาของฉันที่ผ่านมา
 </p>
 
-
 <div class="timeline">
-
 
 <div class="timeline-item">
 
@@ -249,7 +248,16 @@ Songkhla, Thailand
 
 </div>
 
+</div>
+
+</div>
+
 </section>
+
+
+
+<!-- CONTACT -->
+
 <section id="contact" class="contact-section">
 
 <h2>Contact</h2>
@@ -300,7 +308,8 @@ Songkhla, Thailand
 
 <a class="contact-item"
 href="https://github.com/Nongtoonlnwza007eieiXD"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <div class="contact-icon">
 <i class="fa-brands fa-github"></i>
@@ -316,6 +325,33 @@ target="_blank">
 </div>
 
 </section>
+<script>
 
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 100;
+const sectionHeight = section.clientHeight;
+
+if (scrollY >= sectionTop) {
+current = section.getAttribute("id");
+}
+});
+
+navLinks.forEach(link => {
+link.classList.remove("active");
+if (link.getAttribute("href") === "#" + current) {
+link.classList.add("active");
+}
+});
+
+});
+
+</script>
 </body>
 </html>
