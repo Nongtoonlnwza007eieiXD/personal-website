@@ -5,14 +5,14 @@
 :root{
 --bg:#ffffff;
 --text:#111111;
---text-soft:#333333;
+--text-soft:#444;
 --nav:#ffffff;
 
 --accent:#cc5500;
 --accent-hover:#a94400;
 
 --card:#ffffff;
---section:#f7f7f7;
+--section:#f6f6f6;
 
 --shadow:0 12px 30px rgba(0,0,0,0.08);
 }
@@ -124,7 +124,7 @@ width:100%;
 #themeToggle{
 border:none;
 background:var(--accent);
-color:#111;
+color:white;
 padding:7px 14px;
 border-radius:8px;
 cursor:pointer;
@@ -182,20 +182,24 @@ display:flex;
 gap:15px;
 }
 
-.btn-primary{
+.btn-primary,
+.menu-btn{
 background:var(--accent);
-color:#111;
-padding:12px 28px;
-border-radius:10px;
-font-weight:600;
+color:#fff;
+border:none;
+padding:12px 25px;
+border-radius:8px;
 text-decoration:none;
 display:inline-block;
+font-weight:600;
+margin-top:25px;
 transition:.25s;
 }
 
-.btn-primary:hover{
+.btn-primary:hover,
+.menu-btn:hover{
 background:var(--accent-hover);
-transform:translateY(-2px);
+transform:scale(1.05);
 }
 
 /* ======================
@@ -269,26 +273,6 @@ font-size:20px;
 color:var(--text-soft);
 font-size:15px;
 line-height:1.6;
-}
-
-/* BUTTON */
-
-.menu-btn{
-display:inline-block;
-margin-top:20px;
-padding:10px 26px;
-background:var(--accent);
-color:#111;
-text-decoration:none;
-border-radius:8px;
-font-size:14px;
-font-weight:600;
-transition:.25s;
-}
-
-.menu-btn:hover{
-background:var(--accent-hover);
-transform:scale(1.05);
 }
 
 /* ======================
