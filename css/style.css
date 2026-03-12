@@ -180,10 +180,10 @@ border-radius:8px;
 text-decoration:none;
 }
 
-.btn.primary{
-background:#ff8c00;
+.btn-primary{
+background:#b45309;
 color:#ffffff;
-border:2px solid #ff8c00;
+font-weight:600;
 }
 
 .btn.primary:hover{
