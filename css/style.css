@@ -1,25 +1,35 @@
 /* ======================
-   COLOR VARIABLES
+   COLOR SYSTEM
 ====================== */
 
 :root{
 --bg:#ffffff;
 --text:#111111;
+--text-soft:#333333;
 --nav:#ffffff;
---accent:#e87400;
+
+--accent:#cc5500;
+--accent-hover:#a94400;
+
 --card:#ffffff;
---section:#f5f5f5;
---shadow:0 10px 30px rgba(0,0,0,0.08);
+--section:#f7f7f7;
+
+--shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
 body.dark{
 --bg:#0d0d0d;
 --text:#ffffff;
+--text-soft:#d0d0d0;
 --nav:#111111;
---accent:#ff9d00;
+
+--accent:#ff7a1a;
+--accent-hover:#ff9a3d;
+
 --card:#1e1e1e;
 --section:#151515;
---shadow:0 10px 30px rgba(0,0,0,0.4);
+
+--shadow:0 12px 35px rgba(0,0,0,0.4);
 }
 
 /* ======================
@@ -33,7 +43,7 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Segoe UI, sans-serif;
+font-family:Segoe UI, system-ui, sans-serif;
 background:var(--bg);
 color:var(--text);
 line-height:1.6;
@@ -48,7 +58,7 @@ transition:.3s;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 80px;
+padding:20px 80px;
 background:var(--nav);
 position:sticky;
 top:0;
@@ -58,7 +68,7 @@ border-bottom:1px solid rgba(0,0,0,0.06);
 
 .logo{
 font-size:22px;
-font-weight:bold;
+font-weight:700;
 }
 
 .logo span{
@@ -82,7 +92,7 @@ text-decoration:none;
 color:var(--text);
 font-weight:500;
 position:relative;
-padding-bottom:5px;
+padding-bottom:4px;
 font-size:15px;
 }
 
@@ -114,11 +124,16 @@ width:100%;
 #themeToggle{
 border:none;
 background:var(--accent);
-color:white;
-padding:6px 12px;
-border-radius:6px;
+color:#111;
+padding:7px 14px;
+border-radius:8px;
 cursor:pointer;
 font-size:14px;
+font-weight:600;
+}
+
+#themeToggle:hover{
+background:var(--accent-hover);
 }
 
 /* ======================
@@ -129,22 +144,20 @@ font-size:14px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:70px 8%;
+padding:80px 8%;
 min-height:75vh;
 gap:60px;
 }
 
-/* LEFT */
-
 .intro{
-color:#555555;
+color:var(--text-soft);
 margin-bottom:10px;
 font-size:14px;
-font-weight:500;
+font-weight:600;
 }
 
 .hero-left h1{
-font-size:48px;
+font-size:46px;
 margin-bottom:15px;
 }
 
@@ -154,55 +167,35 @@ color:var(--accent);
 
 .description{
 line-height:1.7;
-margin-bottom:25px;
-color:#444444;
+margin-bottom:28px;
+color:var(--text-soft);
 font-size:15px;
 max-width:480px;
 }
 
-body.dark .description{
-color:#cfcfcf;
-}
-
-/* BUTTONS */
+/* ======================
+   BUTTONS
+====================== */
 
 .buttons{
 display:flex;
 gap:15px;
 }
 
-.btn{
-display:inline-block;
-padding:12px 28px;
-font-size:16px;
-font-weight:600;
-border-radius:8px;
-text-decoration:none;
-}
-
 .btn-primary{
-background:#f59e0b;
-color:#000000;
-}
-
-.btn.primary:hover{
-background:#e67600;
-border-color:#e67600;
-}
-
-.primary{
 background:var(--accent);
-color:#ffffff;
+color:#111;
+padding:12px 28px;
+border-radius:10px;
+font-weight:600;
+text-decoration:none;
+display:inline-block;
+transition:.25s;
 }
 
-.primary:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 18px rgba(0,0,0,0.2);
-}
-
-.secondary{
-border:2px solid var(--accent);
-color:var(--accent);
+.btn-primary:hover{
+background:var(--accent-hover);
+transform:translateY(-2px);
 }
 
 /* ======================
@@ -220,7 +213,7 @@ width:260px;
 height:260px;
 border-radius:50%;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+box-shadow:var(--shadow);
 }
 
 .profile-circle img{
@@ -234,7 +227,7 @@ object-fit:cover;
 ====================== */
 
 .menu-section{
-padding:90px 8%;
+padding:100px 8%;
 text-align:center;
 background:var(--section);
 }
@@ -243,8 +236,6 @@ background:var(--section);
 margin-bottom:50px;
 font-size:34px;
 }
-
-/* GRID */
 
 .menu-container{
 display:grid;
@@ -264,11 +255,9 @@ box-shadow:var(--shadow);
 transition:0.35s;
 }
 
-/* hover */
-
 .menu-card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 45px rgba(0,0,0,0.18);
+transform:translateY(-8px);
+box-shadow:0 25px 50px rgba(0,0,0,0.18);
 }
 
 .menu-card h3{
@@ -277,13 +266,9 @@ font-size:20px;
 }
 
 .menu-card p{
-color:#444444;
+color:var(--text-soft);
 font-size:15px;
 line-height:1.6;
-}
-
-body.dark .menu-card p{
-color:#cfcfcf;
 }
 
 /* BUTTON */
@@ -293,15 +278,16 @@ display:inline-block;
 margin-top:20px;
 padding:10px 26px;
 background:var(--accent);
-color:white;
+color:#111;
 text-decoration:none;
 border-radius:8px;
 font-size:14px;
-transition:0.3s;
+font-weight:600;
+transition:.25s;
 }
 
 .menu-btn:hover{
-background:#c95f00;
+background:var(--accent-hover);
 transform:scale(1.05);
 }
 
@@ -311,19 +297,15 @@ transform:scale(1.05);
 
 .game-bg{
 min-height:100vh;
-
 background:linear-gradient(120deg,#4facfe,#00f2fe,#ff9966,#ff5e62);
 background-size:300% 300%;
-
 animation:sunsetMove 15s ease infinite;
 }
 
 @keyframes sunsetMove{
-
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
-
 }
 
 /* ======================
@@ -343,7 +325,7 @@ padding:60px 30px;
 }
 
 .hero-left h1{
-font-size:38px;
+font-size:36px;
 }
 
 .profile-circle{
@@ -391,7 +373,7 @@ gap:30px;
 }
 
 .hero-left h1{
-font-size:30px;
+font-size:28px;
 }
 
 .description{
@@ -403,7 +385,7 @@ flex-direction:column;
 gap:10px;
 }
 
-.btn{
+.btn-primary{
 width:100%;
 text-align:center;
 }

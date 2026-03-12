@@ -28,15 +28,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <ul class="nav-links">
 
-<ul class="nav-links">
-
 <li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
+<li><a href="about.html" class="active">About</a></li>
 <li><a href="game.html">Game</a></li>
 <li><a href="clock.html">Clock</a></li>
 <li><a href="#contact">Contact</a></li>
-
-</ul>
 
 </ul>
 
@@ -140,7 +136,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </section>
 
 
-
 <!-- SKILLS -->
 
 <section class="skills-section">
@@ -173,7 +168,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 </section>
-
 
 
 <!-- EDUCATION -->
@@ -210,7 +204,6 @@ Year 3 | GPA 3.46
 
 </div>
 
-
 <div class="timeline-item">
 
 <div class="timeline-dot"></div>
@@ -229,7 +222,6 @@ Military Technical Training School
 </div>
 
 </div>
-
 
 <div class="timeline-item">
 
@@ -255,7 +247,6 @@ Songkhla, Thailand
 </section>
 
 
-
 <!-- CONTACT -->
 
 <section id="contact" class="contact-section">
@@ -277,7 +268,6 @@ Songkhla, Thailand
 
 </a>
 
-
 <a class="contact-item" href="tel:0943176868">
 
 <div class="contact-icon">
@@ -291,7 +281,6 @@ Songkhla, Thailand
 
 </a>
 
-
 <div class="contact-item">
 
 <div class="contact-icon">
@@ -304,7 +293,6 @@ Songkhla, Thailand
 </div>
 
 </div>
-
 
 <a class="contact-item"
 href="https://github.com/Nongtoonlnwza007eieiXD"
@@ -325,33 +313,6 @@ rel="noopener">
 </div>
 
 </section>
-<script>
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-let current = "";
-
-sections.forEach(section => {
-const sectionTop = section.offsetTop - 100;
-const sectionHeight = section.clientHeight;
-
-if (scrollY >= sectionTop) {
-current = section.getAttribute("id");
-}
-});
-
-navLinks.forEach(link => {
-link.classList.remove("active");
-if (link.getAttribute("href") === "#" + current) {
-link.classList.add("active");
-}
-});
-
-});
-
-</script>
 </body>
 </html>

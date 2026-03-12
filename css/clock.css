@@ -235,5 +235,5 @@ font-weight:500;
 }
 
 .nav-links a.active{
-color:#ff7a1a;
+color:black;   /* ให้สีเหมือนเมนูปกติ */
 }
