@@ -76,7 +76,7 @@ button {
   margin-top: 15px;
   border-radius: 10px;
 
-  background: #d35400;
+  background: #7a2f00; 
   color: #fff;
 
   border: none;
@@ -86,7 +86,7 @@ button {
 }
 
 button:hover {
-  background: #a84300;
+  background: #4d1d00;
   transform: translateY(-2px);
 }
 
