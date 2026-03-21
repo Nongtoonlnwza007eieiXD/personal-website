@@ -2,116 +2,113 @@
 <html lang="th">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock & Stopwatch</title>
 
-<title>Clock & Stopwatch</title>
+  <!-- SEO -->
+  <meta name="description" content="นาฬิกาและจับเวลาออนไลน์ แสดงเวลาแบบอนาล็อก ดิจิทัล และจับเวลาได้">
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/clock.css">
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/clock.css">
 </head>
 
-<body>
+<body class="clock-page">
 
-<header class="navbar">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Portfolio<span>.</span></div>
 
-<div class="logo">Portfolio<span>.</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="game.html">Game</a></li>
+        <li><a href="clock.html" class="active">Clock</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<nav>
+  <!-- BACKGROUND -->
+  <div class="background"></div>
+  <div class="particles"></div>
 
-<ul class="nav-links">
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="page">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="game.html">Game</a></li>
-<li><a href="clock.html" class="active">Clock</a></li>
-<a href="about.html#contact">Contact</a>
+      <h1 class="title">Clock & Stopwatch</h1>
 
-</ul>
+      <p class="subtitle">
+        Real-time analog and digital clock with stopwatch functionality
+      </p>
 
-</nav>
+      <div class="container">
 
-</header>
+        <!-- ANALOG CLOCK -->
+        <div class="analog-clock">
 
+          <div class="number n1">1</div>
+          <div class="number n2">2</div>
+          <div class="number n3">3</div>
+          <div class="number n4">4</div>
+          <div class="number n5">5</div>
+          <div class="number n6">6</div>
+          <div class="number n7">7</div>
+          <div class="number n8">8</div>
+          <div class="number n9">9</div>
+          <div class="number n10">10</div>
+          <div class="number n11">11</div>
+          <div class="number n12">12</div>
 
-<!-- BACKGROUND -->
-<div class="background"></div>
-<div class="particles"></div>
+          <div class="hand hour" id="hour"></div>
+          <div class="hand minute" id="minute"></div>
+          <div class="hand second" id="second"></div>
 
+          <div class="center"></div>
 
-<div class="page">
+        </div>
 
-<h1 class="title">Clock & Stopwatch</h1>
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
 
-<p class="subtitle">
-Real-time analog and digital clock with stopwatch functionality
-</p>
+          <!-- DIGITAL CLOCK -->
+          <div class="card">
+            <h2>Digital Clock</h2>
 
+            <div class="digital-time" id="digitalTime">00:00:00</div>
 
-<div class="container">
+            <div id="date">date</div>
+            <div id="day">day</div>
+          </div>
 
-<!-- ANALOG CLOCK -->
-<div class="analog-clock">
+          <!-- STOPWATCH -->
+          <div class="card">
+            <h2>Stopwatch</h2>
 
-<div class="number n1">1</div>
-<div class="number n2">2</div>
-<div class="number n3">3</div>
-<div class="number n4">4</div>
-<div class="number n5">5</div>
-<div class="number n6">6</div>
-<div class="number n7">7</div>
-<div class="number n8">8</div>
-<div class="number n9">9</div>
-<div class="number n10">10</div>
-<div class="number n11">11</div>
-<div class="number n12">12</div>
+            <div id="stopwatch">00:00.00</div>
 
-<div class="hand hour" id="hour"></div>
-<div class="hand minute" id="minute"></div>
-<div class="hand second" id="second"></div>
+            <button type="button" onclick="startStop()" aria-label="Start or Stop Stopwatch">
+              Start
+            </button>
 
-<div class="center"></div>
+            <button type="button" onclick="resetStop()" aria-label="Reset Stopwatch">
+              Reset
+            </button>
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-<!-- RIGHT PANEL -->
-<div class="right-panel">
+    </div>
+  </main>
 
-<!-- DIGITAL CLOCK -->
-<div class="card">
-
-<div class="digital-time" id="digitalTime">00:00:00</div>
-
-<div id="date">date</div>
-
-<div id="day">day</div>
-
-</div>
-
-
-<!-- STOPWATCH -->
-<div class="card">
-
-<h3>Stopwatch</h3>
-
-<div id="stopwatch">00:00.00</div>
-
-<button onclick="startStop()">Start</button>
-<button onclick="resetStop()">Reset</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script src="javascript/clock.js"></script>
+  <!-- JS -->
+  <script src="javascript/clock.js"></script>
 
 </body>
 </html>
