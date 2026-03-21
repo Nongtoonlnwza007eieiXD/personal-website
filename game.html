@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+    <!-- meta พื้นฐาน -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
     <title>Number Guessing Game | Sornsawan Portfolio</title>
     <meta name="description" content="เกมทายตัวเลข 1-100 สนุก พร้อมระบบคะแนนและ leaderboard">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/game.css">
 </head>
 
 <body class="game-bg">
 
+    <!-- navbar -->
     <header class="navbar">
         <div class="logo">Portfolio<span>.</span></div>
+
         <nav aria-label="Main Navigation">
             <ul class="nav-links">
+
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="game.html" class="active">Game</a></li>
                 <li><a href="clock.html">Clock</a></li>
                 <li><a href="about.html#contact">Contact</a></li>
+
             </ul>
         </nav>
     </header>
 
+
     <main>
 
+        <!-- หน้าเริ่มเกม -->
         <div id="startScreen" class="container-box">
+
             <h1>🎮 Number Guessing Game</h1>
 
+            <!-- กติกา -->
             <div class="rules">
                 <h2>📜 กติกาการเล่น</h2>
                 <p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
@@ -39,33 +52,48 @@
                 <p><b>🏆 คะแนน = 100 - (จำนวนครั้ง × 10) - เวลา</b></p>
             </div>
 
+            <!-- high score -->
             <p>🥇 High Score: <span id="highScore">0</span></p>
+
+            <!-- ปุ่มเริ่ม -->
             <button id="startBtn" class="start-btn">🚀 เริ่มเกม</button>
+
         </div>
 
+
+        <!-- พื้นที่เล่นเกม -->
         <div id="gameArea" class="container-box" hidden>
+
             <h2>🎮 เกมทายตัวเลข</h2>
 
+            <!-- leaderboard -->
             <h3>🏆 Leaderboard</h3>
             <ol id="leaderboard">
                 <li>0</li><li>0</li><li>0</li><li>0</li><li>0</li>
             </ol>
 
+            <!-- input -->
             <div class="input-group">
+
                 <label for="guessInput">กรอกตัวเลข (1-100):</label>
+
                 <input 
-                    type="number" 
-                    id="guessInput" 
+                    type="number"
+                    id="guessInput"
                     placeholder="กรอกตัวเลข"
                     min="1"
                     max="100"
                     inputmode="numeric"
                 >
+
                 <button id="guessBtn">ทาย</button>
+
             </div>
 
-            <p id="message"></p>
+            <!-- ข้อความแจ้ง -->
+            <p id="message" aria-live="polite"></p>
 
+            <!-- สถานะเกม -->
             <div class="game-stats">
                 <p>จำนวนครั้ง: <span id="attempts">0</span></p>
                 <p>⏳ เวลา: <span id="timer">0</span> วินาที</p>
@@ -73,32 +101,45 @@
                 <p>🥇 High Score: <span id="highScoreGame">0</span></p>
             </div>
 
+            <!-- ปุ่มรีสตาร์ท -->
             <button id="restartBtn" class="restart-btn">🔁 เริ่มเกมใหม่</button>
+
         </div>
 
     </main>
 
+
+    <!-- เสียงตอนชนะ -->
     <audio id="winSound" preload="none">
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
     </audio>
 
+
+    <!-- script หลัก -->
     <script src="javascript/game.js" defer></script>
 
+    <!-- script เสริม -->
     <script>
+        // รอโหลดหน้าเว็บ
         document.addEventListener("DOMContentLoaded", () => {
+
             const input = document.getElementById("guessInput");
             const guessBtn = document.getElementById("guessBtn");
             const startBtn = document.getElementById("startBtn");
             const restartBtn = document.getElementById("restartBtn");
 
-            if(input) {
+            // กด Enter เพื่อทาย
+            if(input){
                 input.addEventListener("keypress", (e) => {
                     if(e.key === "Enter") checkGuess();
                 });
             }
+
+            // ปุ่มต่าง ๆ
             if(guessBtn) guessBtn.addEventListener("click", checkGuess);
             if(startBtn) startBtn.addEventListener("click", startGame);
             if(restartBtn) restartBtn.addEventListener("click", restartGame);
+
         });
     </script>
 

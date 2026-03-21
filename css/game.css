@@ -19,7 +19,6 @@ body.game-bg {
 
 /* [3] ===== LAYOUT MANAGEMENT (FLEXBOX) ===== */
 main {
-  /* [REQUIREMENT 2.4] ใช้ Flexbox เพื่อจัดให้พื้นที่เกมอยู่กึ่งกลางหน้าจอเสมอ (Viewport Centering) */
   min-height: calc(100vh - 80px); /* หักลบความสูงของ Navbar ออก */
   display: flex;
   justify-content: center; /* จัดแนวนอน */

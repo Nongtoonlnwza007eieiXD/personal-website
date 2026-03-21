@@ -1,6 +1,4 @@
-/* ======================
-COLOR SYSTEM
-====================== */
+/* COLOR SYSTEM */
 :root{
   --bg:#ffffff;
   --text:#111111;
@@ -16,15 +14,14 @@ COLOR SYSTEM
   --shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-/* ======================
-RESET
-====================== */
+/* RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
+/* GLOBAL */
 body{
   font-family:Segoe UI, system-ui, sans-serif;
   background:var(--bg);
@@ -32,9 +29,13 @@ body{
   line-height:1.6;
 }
 
-/* ======================
-NAVBAR
-====================== */
+/* LAYOUT FIX (ช่วย PageSpeed + Responsive) */
+main{
+  max-width:1200px;
+  margin:auto;
+}
+
+/* NAVBAR */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -47,6 +48,7 @@ NAVBAR
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
+/* LOGO */
 .logo{
   font-size:22px;
   font-weight:700;
@@ -56,6 +58,7 @@ NAVBAR
   color:var(--accent);
 }
 
+/* NAV */
 nav{
   display:flex;
   align-items:center;
@@ -77,7 +80,7 @@ nav a{
   font-size:15px;
 }
 
-/* underline animation */
+/* NAV ANIMATION */
 nav a::after{
   content:"";
   position:absolute;
@@ -86,20 +89,15 @@ nav a::after{
   width:0%;
   height:2px;
   background:var(--accent);
-  transition:.3s;
+  transition:width .3s ease;
 }
 
-nav a:hover::after{
+nav a:hover::after,
+nav a:focus::after{
   width:100%;
 }
 
-nav a.active::after{
-  width:100%;
-}
-
-/* ======================
-HERO
-====================== */
+/* HERO */
 .hero{
   display:flex;
   justify-content:space-between;
@@ -133,9 +131,7 @@ HERO
   max-width:480px;
 }
 
-/* ======================
-BUTTONS
-====================== */
+/* BUTTONS (แก้ Accessibility เต็ม 100) */
 .buttons{
   display:flex;
   gap:15px;
@@ -152,18 +148,24 @@ BUTTONS
   display:inline-block;
   font-weight:600;
   margin-top:28px;
-  transition:0.25s;
+  transition:background .25s ease, transform .2s ease;
 }
 
+/* HOVER */
 .btn-primary:hover,
 .menu-btn:hover{
   background:var(--accent-hover);
-  transform:scale(1.05);
 }
 
-/* ======================
-PROFILE
-====================== */
+/* FOCUS */
+.btn-primary:focus,
+.menu-btn:focus,
+nav a:focus{
+  outline:3px solid #ffb366;
+  outline-offset:2px;
+}
+
+/* PROFILE */
 .hero-right{
   display:flex;
   align-items:center;
@@ -184,9 +186,7 @@ PROFILE
   object-fit:cover;
 }
 
-/* ======================
-PORTFOLIO SECTION
-====================== */
+/* PORTFOLIO */
 .menu-section{
   padding:100px 8%;
   text-align:center;
@@ -212,12 +212,12 @@ PORTFOLIO SECTION
   padding:45px 35px;
   border-radius:18px;
   box-shadow:var(--shadow);
-  transition:0.35s;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .menu-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 25px 50px rgba(0,0,0,0.18);
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
 .menu-card h3{
@@ -232,9 +232,7 @@ PORTFOLIO SECTION
   margin-bottom:10px;
 }
 
-/* ======================
-TABLET
-====================== */
+/* TABLET */
 @media (max-width:900px){
 
   .navbar{
@@ -265,9 +263,7 @@ TABLET
   }
 }
 
-/* ======================
-MOBILE
-====================== */
+/* MOBILE */
 @media (max-width:600px){
 
   .navbar{

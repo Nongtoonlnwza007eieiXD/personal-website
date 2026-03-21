@@ -2,30 +2,34 @@
 <html lang="th">
 
 <head>
+    <!-- Meta พื้นฐาน -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO -->
     <title>About - Sornsawan Portfolio</title>
+    <meta name="description" content="ประวัติส่วนตัวของ Sornsawan Jantasuwanno นักศึกษาครุศาสตร์วิศวกรรม สนใจ Web Development และ Cybersecurity">
 
-    <meta name="description" content="ประวัติส่วนตัวของ Sornsawan Jantasuwanno นักศึกษาครุศาสตร์วิศวกรรม สนใจ Web Development และ Cybersecurity พร้อมทักษะและผลงานด้านการพัฒนาเว็บไซต์">
-    
+    <!-- Open Graph -->
     <meta property="og:title" content="About - Sornsawan Portfolio">
     <meta property="og:description" content="ประวัติและผลงานของ Sornsawan Jantasuwanno">
     <meta property="og:type" content="website">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
 
+    <!-- Navbar -->
     <header class="navbar">
         <div class="logo">Portfolio<span>.</span></div>
 
         <nav aria-label="Main Navigation">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html" class="active" aria-current="page">About</a></li>
                 <li><a href="game.html">Game</a></li>
                 <li><a href="clock.html">Clock</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -33,33 +37,46 @@
         </nav>
     </header>
 
+    <!-- Main -->
     <main>
 
+        <!-- ABOUT -->
         <section class="cv-section">
-            <p class="section-small">ABOUT</p>
-            <h1>Curriculum Vitae</h1>
-            <h2>About Me</h2>
+            <header>
+                <p class="section-small">ABOUT</p>
+                <h1>Curriculum Vitae</h1>
+                <h2>About Me</h2>
 
-            <p class="section-desc">
-                มาทำความรู้จักเกี่ยวกับตัวฉันและพื้นฐานของฉันให้มากขึ้น
-            </p>
+                <p class="section-desc">
+                    มาทำความรู้จักเกี่ยวกับตัวฉันและพื้นฐานของฉันให้มากขึ้น
+                </p>
+            </header>
 
             <div class="cv-content">
-                <div class="cv-text">
-                    <p>ฉันเป็นนักศึกษาสาขาครุศาสตร์วิศวกรรม จากสถาบันเทคโนโลยีพระจอมเกล้าคุณทหารลาดกระบัง 
-                    มีความสนใจด้าน Web Development และ Cybersecurity ชอบเรียนรู้เทคโนโลยีใหม่ ๆ และพัฒนาทักษะด้านการเขียนโปรแกรมอย่างต่อเนื่อง</p>
 
-                    <p>ปัจจุบันกำลังพัฒนาทักษะ HTML, CSS และ JavaScript รวมถึงพื้นฐาน Networking 
-                    และ Cybersecurity เพื่อเตรียมความพร้อมในการทำงานด้านเทคโนโลยีในอนาคต</p>
-                </div>
+                <article class="cv-text">
+                    <p>
+                        ฉันเป็นนักศึกษาสาขาครุศาสตร์วิศวกรรม จากสถาบันเทคโนโลยีพระจอมเกล้าคุณทหารลาดกระบัง 
+                        มีความสนใจด้าน Web Development และ Cybersecurity
+                    </p>
+                    <p>
+                        ปัจจุบันกำลังพัฒนาทักษะ HTML, CSS, JavaScript และ Cybersecurity
+                    </p>
+                </article>
 
-                <div class="cv-text">
-                    <p>งานอดิเรกของฉันคือ ดูหนัง ฟังเพลง และถ่ายรูป ซึ่งช่วยสร้างแรงบันดาลใจและความคิดสร้างสรรค์</p>
-                    <p>เป้าหมายในอนาคตคือการเป็นครูด้านเทคโนโลยี และพัฒนาเว็บไซต์ที่มีความปลอดภัยและมีประสิทธิภาพ</p>
-                </div>
+                <article class="cv-text">
+                    <p>
+                        งานอดิเรกคือ ดูหนัง ฟังเพลง และถ่ายรูป
+                    </p>
+                    <p>
+                        เป้าหมายคือเป็นครูด้านเทคโนโลยี และพัฒนาเว็บที่ปลอดภัย
+                    </p>
+                </article>
+
             </div>
 
-            <div class="cv-info">
+            <!-- INFO -->
+            <section class="cv-info">
                 <div><p class="label">FULL NAME</p><p>ศรสวรรค์ จันทสุวรรณโณ</p></div>
                 <div><p class="label">DATE OF BIRTH</p><p>11 November 2004</p></div>
                 <div><p class="label">UNIVERSITY</p><p>KMITL</p></div>
@@ -68,53 +85,33 @@
                 <div><p class="label">GPA</p><p>3.46</p></div>
                 <div><p class="label">LOCATION</p><p>Songkhla, Thailand</p></div>
                 <div><p class="label">LANGUAGE</p><p>Thai / English</p></div>
-            </div>
+            </section>
         </section>
 
+        <!-- SKILLS -->
         <section class="skills-section">
             <h2>Skills</h2>
 
-            <div class="skill">
-                <p>HTML</p>
-                <div class="bar"><div class="fill html">80%</div></div>
-            </div>
-
-            <div class="skill">
-                <p>CSS</p>
-                <div class="bar"><div class="fill css">70%</div></div>
-            </div>
-
-            <div class="skill">
-                <p>JavaScript</p>
-                <div class="bar"><div class="fill js">60%</div></div>
-            </div>
-
-            <div class="skill">
-                <p>Networking</p>
-                <div class="bar"><div class="fill network">50%</div></div>
-            </div>
-
-            <div class="skill">
-                <p>Cybersecurity</p>
-                <div class="bar"><div class="fill cyber">50%</div></div>
-            </div>
+            <div class="skill"><p>HTML</p><div class="bar"><div class="fill html">80%</div></div></div>
+            <div class="skill"><p>CSS</p><div class="bar"><div class="fill css">70%</div></div></div>
+            <div class="skill"><p>JavaScript</p><div class="bar"><div class="fill js">60%</div></div></div>
+            <div class="skill"><p>Networking</p><div class="bar"><div class="fill network">50%</div></div></div>
+            <div class="skill"><p>Cybersecurity</p><div class="bar"><div class="fill cyber">50%</div></div></div>
         </section>
 
+        <!-- EDUCATION -->
         <section class="education-section">
             <p class="section-small">EDUCATION</p>
             <h2 class="section-title">Academic Background</h2>
 
-            <p class="section-desc">เส้นทางการศึกษาของฉันที่ผ่านมา</p>
-
             <div class="timeline">
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="year">2023 - Present</span>
                         <h3>Engineering Education</h3>
-                        <p>School of Industrial Education and Technology<br>
-                        King Mongkut's Institute of Technology Ladkrabang<br>
-                        Year 3 | GPA 3.46</p>
+                        <p>KMITL | Year 3 | GPA 3.46</p>
                     </div>
                 </div>
 
@@ -123,7 +120,7 @@
                     <div class="timeline-content">
                         <span class="year">2020 - 2023</span>
                         <h3>Vocational Certificate</h3>
-                        <p>Electronics <br> Military Technical Training School</p>
+                        <p>Electronics</p>
                     </div>
                 </div>
 
@@ -132,21 +129,25 @@
                     <div class="timeline-content">
                         <span class="year">2017 - 2019</span>
                         <h3>Junior High School</h3>
-                        <p>Mahavajiravudh School<br> Songkhla, Thailand</p>
+                        <p>Mahavajiravudh School</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="contact-section">
             <h2>Contact</h2>
 
             <div class="contact-list">
-                <a class="contact-item" href="mailto:sronsawanjantasuwanno@gmail.com" aria-label="Send email">
+
+                <!-- Email -->
+                <a class="contact-item" href="mailto:sronsawanjantasuwanno@gmail.com">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                          <path d="M3 7l9 6 9-6"></path>
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                            <path d="M3 7l9 6 9-6"></path>
                         </svg>
                     </div>
                     <div class="contact-text">
@@ -155,10 +156,11 @@
                     </div>
                 </a>
 
-                <a class="contact-item" href="tel:0943176868" aria-label="Call phone">
+                <!-- Phone -->
+                <a class="contact-item" href="tel:0943176868">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                        <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 2.3 1 4.8 1.6 7.4 1.6.7 0 1.3.6 1.3 1.3V22c0 .7-.6 1.3-1.3 1.3C10.3 23.3.7 13.7.7 1.3.7.6 1.3 0 2 0h3.7c.7 0 1.3.6 1.3 1.3 0 2.6.6 5.1 1.6 7.4.1.4 0 .9-.2 1.2l-2.8 2.9z"/>
+                            <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 2.3 1 4.8 1.6 7.4 1.6.7 0 1.3.6 1.3 1.3V22c0 .7-.6 1.3-1.3 1.3C10.3 23.3.7 13.7.7 1.3.7.6 1.3 0 2 0h3.7c.7 0 1.3.6 1.3 1.3 0 2.6.6 5.1 1.6 7.4.1.4 0 .9-.2 1.2l-2.8 2.9z"/>
                         </svg>
                     </div>
                     <div class="contact-text">
@@ -167,10 +169,11 @@
                     </div>
                 </a>
 
+                <!-- Location -->
                 <div class="contact-item">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                        <path d="M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+                            <path d="M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7z"/>
                         </svg>
                     </div>
                     <div class="contact-text">
@@ -179,10 +182,14 @@
                     </div>
                 </div>
 
-                <a class="contact-item" href="https://github.com/Nongtoonlnwza007eieiXD" target="_blank" rel="noopener" aria-label="GitHub profile">
+                <!-- GitHub -->
+                <a class="contact-item"
+                   href="https://github.com/Nongtoonlnwza007eieiXD"
+                   target="_blank"
+                   rel="noopener">
                     <div class="contact-icon">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                        <path d="M12 .5C5.7.5.9 5.3.9 11.6c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8 1.5 2.8 1.1.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.3 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.1-2.6 5-5.1 5.3.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.1 5.3 18.3.5 12 .5z"/>
+                            <path d="M12 .5C5.7.5.9 5.3.9 11.6c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8 1.5 2.8 1.1.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.3 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.1-2.6 5-5.1 5.3.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.1 5.3 18.3.5 12 .5z"/>
                         </svg>
                     </div>
                     <div class="contact-text">
@@ -190,11 +197,13 @@
                         <p>github.com/Nongtoonlnwza007eieiXD</p>
                     </div>
                 </a>
+
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 Sornsawan Portfolio</p>
     </footer>

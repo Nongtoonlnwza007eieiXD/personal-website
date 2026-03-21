@@ -2,20 +2,25 @@
 <html lang="th">
 
 <head>
+    <!-- Meta พื้นฐาน -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
     <title>Clock & Stopwatch | Sornsawan Portfolio</title>
+    <meta name="description" content="นาฬิกาอนาล็อก ดิจิทัล และระบบจับเวลา (Stopwatch) แสดงผลแบบเรียลไทม์">
 
-    <meta name="description" content="นาฬิกาและจับเวลาออนไลน์ แสดงเวลาแบบอนาล็อก ดิจิทัล และจับเวลาได้">
-
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/clock.css">
 </head>
 
 <body class="clock-page">
 
+    <!-- Navbar -->
     <header class="navbar">
         <div class="logo">Portfolio<span>.</span></div>
+
         <nav aria-label="Main Navigation">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -27,20 +32,28 @@
         </nav>
     </header>
 
-    <div class="background"></div>
-    <div class="particles"></div>
+    <!-- Background effect -->
+    <div class="background" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true"></div>
 
+    <!-- Main content -->
     <main>
-        <div class="page">
+        <section class="page">
 
-            <h1 class="title">Clock & Stopwatch</h1>
-            <p class="subtitle">
-                Real-time analog and digital clock with stopwatch functionality
-            </p>
+            <!-- Title -->
+            <header>
+                <h1 class="title">Clock & Stopwatch</h1>
+                <p class="subtitle">
+                    แสดงเวลาแบบอนาล็อก ดิจิทัล และจับเวลาได้แบบเรียลไทม์
+                </p>
+            </header>
 
             <div class="container">
 
-                <section class="analog-clock" aria-label="Analog Clock Display">
+                <!-- Analog Clock -->
+                <section class="analog-clock" aria-label="นาฬิกาอนาล็อก">
+
+                    <!-- ตัวเลขรอบหน้าปัด -->
                     <div class="number n1">1</div>
                     <div class="number n2">2</div>
                     <div class="number n3">3</div>
@@ -54,30 +67,49 @@
                     <div class="number n11">11</div>
                     <div class="number n12">12</div>
 
-                    <div class="hand hour" id="hour"></div>
-                    <div class="hand minute" id="minute"></div>
-                    <div class="hand second" id="second"></div>
+                    <!-- เข็มนาฬิกา -->
+                    <div class="hand hour" id="hour" aria-label="เข็มชั่วโมง"></div>
+                    <div class="hand minute" id="minute" aria-label="เข็มนาที"></div>
+                    <div class="hand second" id="second" aria-label="เข็มวินาที"></div>
+
                     <div class="center"></div>
                 </section>
 
+                <!-- Right Panel -->
                 <aside class="right-panel">
 
+                    <!-- Digital Clock -->
                     <article class="card">
                         <h2>Digital Clock</h2>
-                        <div class="digital-time" id="digitalTime">00:00:00</div>
-                        <div id="date">date</div>
-                        <div id="day">day</div>
+
+                        <time id="digitalTime" class="digital-time" aria-live="polite">
+                            00:00:00
+                        </time>
+
+                        <p id="date"></p>
+                        <p id="day"></p>
                     </article>
 
+                    <!-- Stopwatch -->
                     <article class="card">
                         <h2>Stopwatch</h2>
-                        <div id="stopwatch">00:00.00</div>
-                        
+
+                        <time id="stopwatch" aria-live="polite">
+                            00:00.00
+                        </time>
+
                         <div class="controls">
-                            <button type="button" onclick="startStop()" aria-label="Start or Stop Stopwatch">
+                            <button 
+                                type="button" 
+                                onclick="startStop()" 
+                                aria-label="เริ่มหรือหยุดการจับเวลา">
                                 Start / Stop
                             </button>
-                            <button type="button" onclick="resetStop()" aria-label="Reset Stopwatch">
+
+                            <button 
+                                type="button" 
+                                onclick="resetStop()" 
+                                aria-label="รีเซ็ตการจับเวลา">
                                 Reset
                             </button>
                         </div>
@@ -85,10 +117,13 @@
 
                 </aside>
 
-            </div> </div>
+            </div>
+
+        </section>
     </main>
 
-    <script src="javascript/clock.js"></script>
+    <!-- JavaScript -->
+    <script src="javascript/clock.js" defer></script>
 
 </body>
 </html>
