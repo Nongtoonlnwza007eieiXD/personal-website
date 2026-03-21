@@ -1,32 +1,22 @@
-// ===== LEADERBOARD =====
-
-let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [0,0,0,0,0]
-
-function updateLeaderboardDisplay(){
-
-let list = document.getElementById("leaderboard")
-if(!list) return
-
-list.innerHTML = ""
-
-leaderboard.forEach(function(score){
-
-let li = document.createElement("li")
-li.textContent = score
-list.appendChild(li)
-
-})
-
+// ===== CACHE DOM =====
+const el = {
+  leaderboard: document.getElementById("leaderboard"),
+  highScore: document.getElementById("highScore"),
+  highScoreGame: document.getElementById("highScoreGame"),
+  attempts: document.getElementById("attempts"),
+  timer: document.getElementById("timer"),
+  score: document.getElementById("score"),
+  message: document.getElementById("message"),
+  input: document.getElementById("guessInput"),
+  startScreen: document.getElementById("startScreen"),
+  gameArea: document.getElementById("gameArea"),
+  winSound: document.getElementById("winSound")
 }
 
 
-// ===== HIGH SCORE =====
-
-let highScore = localStorage.getItem("highScore") || 0
-document.getElementById("highScore").textContent = highScore
-
-
-// ===== GAME VARIABLES =====
+// ===== DATA =====
+let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [0,0,0,0,0]
+let highScore = Number(localStorage.getItem("highScore")) || 0
 
 let secretNumber
 let attempts = 0
@@ -35,142 +25,121 @@ let timerInterval
 let gameOver = false
 
 
-// ===== START GAME =====
+// ===== INIT =====
+if (el.highScore) el.highScore.textContent = highScore
+if (el.highScoreGame) el.highScoreGame.textContent = highScore
 
+
+// ===== LEADERBOARD =====
+function updateLeaderboardDisplay(){
+
+  if(!el.leaderboard) return
+
+  el.leaderboard.innerHTML = leaderboard
+    .map(score => `<li>${score}</li>`)
+    .join("")
+}
+
+
+// ===== START GAME =====
 function startGame(){
 
-document.getElementById("startScreen").style.display = "none"
-document.getElementById("gameArea").style.display = "block"
+  el.startScreen.style.display = "none"
+  el.gameArea.hidden = false
 
-secretNumber = Math.floor(Math.random() * 100) + 1
+  secretNumber = Math.floor(Math.random() * 100) + 1
 
-attempts = 0
-time = 0
-gameOver = false
+  attempts = 0
+  time = 0
+  gameOver = false
 
-document.getElementById("attempts").textContent = 0
-document.getElementById("timer").textContent = 0
-document.getElementById("score").textContent = 0
-document.getElementById("message").textContent = ""
-document.getElementById("guessInput").value = ""
+  el.attempts.textContent = 0
+  el.timer.textContent = 0
+  el.score.textContent = 0
+  el.message.textContent = ""
+  el.input.value = ""
 
-clearInterval(timerInterval)
+  clearInterval(timerInterval)
 
-timerInterval = setInterval(function(){
+  timerInterval = setInterval(() => {
+    time++
+    el.timer.textContent = time
+  }, 1000)
 
-time++
-document.getElementById("timer").textContent = time
-
-},1000)
-
-document.getElementById("guessInput").focus()
-
+  el.input.focus()
 }
 
 
 // ===== CHECK GUESS =====
-
 function checkGuess(){
 
-if(gameOver) return
+  if(gameOver) return
 
-let input = document.getElementById("guessInput")
-let guess = Number(input.value)
+  const value = el.input.value.trim()
 
-if(input.value === ""){
-alert("กรุณากรอกตัวเลข")
-return
-}
+  if(!value){
+    alert("กรุณากรอกตัวเลข")
+    return
+  }
 
-if(guess < 1 || guess > 100){
-alert("กรุณากรอกเลข 1 - 100 เท่านั้น")
-input.value = ""
-input.focus()
-return
-}
+  const guess = Number(value)
 
-attempts++
-document.getElementById("attempts").textContent = attempts
+  if(guess < 1 || guess > 100){
+    alert("กรุณากรอกเลข 1 - 100 เท่านั้น")
+    el.input.value = ""
+    el.input.focus()
+    return
+  }
 
+  attempts++
+  el.attempts.textContent = attempts
 
-if(guess === secretNumber){
+  if(guess === secretNumber){
 
-clearInterval(timerInterval)
+    clearInterval(timerInterval)
+    gameOver = true
 
-gameOver = true
+    el.message.textContent = "🎉 ถูกต้อง!"
 
-document.getElementById("message").textContent = "🎉 ถูกต้อง!"
+    let score = Math.max(0, 1000 - (attempts * 20) - (time * 5))
+    el.score.textContent = score
 
-// สูตรคะแนนใหม่ (ไม่ติดลบง่าย)
-let score = 1000 - (attempts * 20) - (time * 5)
+    el.winSound?.play()
 
-if(score < 0){
-score = 0
-}
+    // HIGH SCORE
+    if(score > highScore){
+      highScore = score
+      localStorage.setItem("highScore", highScore)
 
-document.getElementById("score").textContent = score
+      if (el.highScore) el.highScore.textContent = highScore
+      if (el.highScoreGame) el.highScoreGame.textContent = highScore
+    }
 
-document.getElementById("winSound").play()
+    // LEADERBOARD
+    leaderboard = [...leaderboard, score]
+      .sort((a,b) => b - a)
+      .slice(0,5)
 
+    localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
+    updateLeaderboardDisplay()
 
-// ===== HIGH SCORE =====
+  }
+  else{
+    el.message.textContent = guess > secretNumber
+      ? "📉 มากเกินไป"
+      : "📈 น้อยเกินไป"
+  }
 
-if(score > highScore){
-
-highScore = score
-
-localStorage.setItem("highScore", highScore)
-
-document.getElementById("highScore").textContent = highScore
-
-}
-
-
-// ===== LEADERBOARD =====
-
-leaderboard.push(score)
-
-leaderboard.sort(function(a,b){
-return b - a
-})
-
-leaderboard = leaderboard.slice(0,5)
-
-localStorage.setItem("leaderboard", JSON.stringify(leaderboard))
-
-updateLeaderboardDisplay()
-
-}
-
-else if(guess > secretNumber){
-
-document.getElementById("message").textContent = "📉 มากเกินไป"
-
-}
-
-else{
-
-document.getElementById("message").textContent = "📈 น้อยเกินไป"
-
+  el.input.value = ""
+  el.input.focus()
 }
 
 
-// ล้างช่องกรอก
-input.value = ""
-input.focus()
-
-}
-
-
-// ===== RESTART GAME =====
-
+// ===== RESTART =====
 function restartGame(){
-
-startGame()
-
+  startGame()
 }
 
 
-// ===== LOAD DATA =====
-
+// ===== LOAD =====
 updateLeaderboardDisplay()

@@ -6,9 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Number Guessing Game</title>
+<meta name="description" content="เกมทายตัวเลข 1-100 สนุก พร้อมระบบคะแนนและ leaderboard">
 
+<!-- preload CSS -->
+<link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="css/game.css" as="style" onload="this.rel='stylesheet'">
+
+<noscript>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/game.css">
+</noscript>
 
 </head>
 
@@ -19,16 +26,13 @@
 <div class="logo">Portfolio<span>.</span></div>
 
 <nav>
-
 <ul class="nav-links">
-
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="game.html" class="active">Game</a></li>
 <li><a href="clock.html">Clock</a></li>
-<a href="about.html#contact">Contact</a>
+<li><a href="about.html#contact">Contact</a></li>
 </ul>
-
 </nav>
 
 </header>
@@ -40,22 +44,18 @@
 <h1>🎮 Number Guessing Game</h1>
 
 <div class="rules">
-
 <h3>📜 กติกาการเล่น</h3>
 
 <p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
 <p>🎯 ทายตัวเลขให้ถูกต้อง</p>
 <p>⏱ ยิ่งใช้เวลาน้อย คะแนนยิ่งสูง</p>
 <p>🔁 ยิ่งทายน้อยครั้ง คะแนนยิ่งดี</p>
-<p>🏆 คะแนนคำนวณจาก</p>
-
-<p><b>100 - (จำนวนครั้ง × 10) - เวลา</b></p>
-
+<p><b>🏆 คะแนน = 100 - (จำนวนครั้ง × 10) - เวลา</b></p>
 </div>
 
 <p>🥇 High Score: <span id="highScore">0</span></p>
 
-<button id="startBtn" onclick="startGame()" class="start-btn">
+<button id="startBtn" class="start-btn">
 🚀 เริ่มเกม
 </button>
 
@@ -63,7 +63,7 @@
 
 
 <!-- GAME AREA -->
-<div class="game-container" id="gameArea" style="display:none;">
+<div class="game-container" id="gameArea" hidden>
 
 <h2>🎮 เกมทายตัวเลข</h2>
 
@@ -85,21 +85,19 @@ id="guessInput"
 placeholder="กรอกตัวเลข"
 min="1"
 max="100"
+inputmode="numeric"
 >
 
-<button onclick="checkGuess()">ทาย</button>
+<button id="guessBtn">ทาย</button>
 
 <p id="message"></p>
 
 <p>จำนวนครั้ง: <span id="attempts">0</span></p>
-
 <p>⏳ เวลา: <span id="timer">0</span> วินาที</p>
-
 <p>🏆 คะแนน: <span id="score">0</span></p>
-
 <p>🥇 High Score: <span id="highScoreGame">0</span></p>
 
-<button onclick="restartGame()" class="restart-btn">
+<button id="restartBtn" class="restart-btn">
 🔁 เริ่มเกมใหม่
 </button>
 
@@ -107,16 +105,31 @@ max="100"
 
 
 <!-- SOUND -->
-<audio id="winSound">
+<audio id="winSound" preload="none">
 <source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
 </audio>
 
-<script src="javascript/game.js"></script>
+<!-- JS -->
+<script src="javascript/game.js" defer></script>
+
 <script>
-document.getElementById("guessInput").addEventListener("keypress", function(e){
-if(e.key === "Enter"){
-checkGuess()
-}
+document.addEventListener("DOMContentLoaded", () => {
+
+const input = document.getElementById("guessInput")
+const guessBtn = document.getElementById("guessBtn")
+const startBtn = document.getElementById("startBtn")
+const restartBtn = document.getElementById("restartBtn")
+
+// Enter กดทาย
+input.addEventListener("keypress", (e) => {
+if(e.key === "Enter") checkGuess()
+})
+
+// ปุ่ม
+guessBtn.addEventListener("click", checkGuess)
+startBtn.addEventListener("click", startGame)
+restartBtn.addEventListener("click", restartGame)
+
 })
 </script>
 
