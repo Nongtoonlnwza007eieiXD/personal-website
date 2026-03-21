@@ -1,4 +1,4 @@
-/* ===== RESET กัน layout เพี้ยน ===== */
+/* ===== RESET ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,34 +7,31 @@
 
 html, body {
   height: 100%;
+  /* ❌ เอา Arial ออก เพื่อไม่ให้ทับ style.css */
 }
 
 /* ===== BACKGROUND ===== */
 body.game-bg {
   background: linear-gradient(135deg, #ffb347, #ff7e5f);
-  min-height: 100vh;
-
-  /* ❌ ลบ flex ออก (ตัวทำ CLS) */
 }
 
-/* ===== TITLE ===== */
-h1, h2 {
-  text-align: center;
-  margin-top: 30px;
+/* ===== NAVBAR ===== */
+header {
+  width: 100%;
 }
 
-/* ===== MAIN ===== */
+/* ===== MAIN (จัดกลางเฉพาะส่วนเกม) ===== */
 main {
-  display: block; /* 🔥 กัน layout shift */
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ===== CENTER BOX ===== */
+/* ===== BOX ===== */
 .container-box {
   width: 100%;
   max-width: 520px;
-
-  /* 🔥 ใช้ margin จัดกลางแทน flex */
-  margin: 120px auto;
 
   padding: 35px;
   background: #fff;
@@ -42,7 +39,17 @@ main {
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
 
-  min-height: 520px; /* 🔥 ล็อคขนาด */
+  min-height: 520px;
+  transition: transform 0.2s;
+}
+
+.container-box:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== TITLE ===== */
+h1, h2 {
+  margin-bottom: 20px;
 }
 
 /* ===== RULE BOX ===== */
@@ -102,13 +109,4 @@ button:hover {
 #message {
   margin-top: 15px;
   font-weight: bold;
-}
-
-/* ===== SAFE ANIMATION ===== */
-.container-box {
-  will-change: transform;
-}
-
-.container-box:hover {
-  transform: translateY(-3px);
 }

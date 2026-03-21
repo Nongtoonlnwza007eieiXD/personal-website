@@ -8,20 +8,16 @@
 <title>Number Guessing Game</title>
 <meta name="description" content="เกมทายตัวเลข 1-100 สนุก พร้อมระบบคะแนนและ leaderboard">
 
-<!-- preload CSS -->
-<link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
-<link rel="preload" href="css/game.css" as="style" onload="this.rel='stylesheet'">
-
-<noscript>
+<!-- ✅ ใช้ CSS ปกติ (แก้ CLS) -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/game.css">
-</noscript>
 
 </head>
 
 <body class="game-bg">
 
 <header class="navbar">
+
 <div class="logo">Portfolio<span>.</span></div>
 
 <nav>
@@ -33,9 +29,10 @@
 <li><a href="about.html#contact">Contact</a></li>
 </ul>
 </nav>
+
 </header>
 
-<!-- 🔥 เพิ่ม main -->
+<!-- ✅ เพิ่ม main ให้ semantic ดีขึ้น -->
 <main>
 
 <!-- START SCREEN -->
@@ -44,8 +41,7 @@
 <h1>🎮 Number Guessing Game</h1>
 
 <div class="rules">
-<!-- 🔥 แก้ h3 → h2 -->
-<h2>📜 กติกาการเล่น</h2>
+<h3>📜 กติกาการเล่น</h3>
 
 <p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
 <p>🎯 ทายตัวเลขให้ถูกต้อง</p>
@@ -67,8 +63,7 @@
 
 <h2>🎮 เกมทายตัวเลข</h2>
 
-<!-- 🔥 แก้ h3 → h2 -->
-<h2>🏆 Leaderboard</h2>
+<h3>🏆 Leaderboard</h3>
 
 <ol id="leaderboard">
 <li>0</li>
