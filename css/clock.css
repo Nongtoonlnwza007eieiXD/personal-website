@@ -206,22 +206,35 @@ RIGHT PANEL
 }
 
 /* ======================
-BUTTON
+BUTTON (FIX ACCESSIBILITY)
 ====================== */
 
 .clock-page button{
-  background:#ff7a1a;
+  background:#b34700;   /* 🔥 เข้มขึ้น = contrast ผ่าน */
   border:none;
-  color:white;
-  padding:10px 18px;
+  color:#ffffff;
+  padding:12px 20px;
   border-radius:8px;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.2s;
+  font-weight:600;
 }
 
+/* hover */
 .clock-page button:hover{
-  background:#ff9b4d;
+  background:#ff7a1a;
   transform:scale(1.05);
+}
+
+/* active */
+.clock-page button:active{
+  transform:scale(0.97);
+}
+
+/* 🔥 สำคัญมาก (keyboard user) */
+.clock-page button:focus{
+  outline:3px solid #ffffff;
+  outline-offset:2px;
 }
 
 /* ======================
