@@ -11,11 +11,11 @@ color:#1a1a1a;
 /* small title */
 
 .section-small{
-color:#ff8c00;
+color:#cc7000; /* ✅ เข้มขึ้น (ผ่าน contrast) */
 font-size:12px;
 letter-spacing:3px;
 margin-bottom:10px;
-font-weight:600;
+font-weight:700;
 }
 
 /* main title */
@@ -29,7 +29,7 @@ color:#111;
 /* subtitle */
 
 .section-desc{
-color:#555;
+color:#444; /* ✅ เข้มขึ้น */
 margin-bottom:60px;
 font-size:15px;
 }
@@ -47,7 +47,7 @@ margin-bottom:60px;
 
 .cv-text p{
 line-height:1.9;
-color:#333;
+color:#222; /* ✅ เข้มขึ้น */
 margin-bottom:20px;
 font-size:15px;
 }
@@ -73,7 +73,7 @@ padding:8px 0;
 
 .label{
 font-size:12px;
-color:#777;
+color:#555; /* ✅ เข้มขึ้น */
 letter-spacing:1px;
 margin-bottom:5px;
 font-weight:600;
@@ -81,7 +81,7 @@ font-weight:600;
 
 .cv-info p{
 font-size:15px;
-color:#222;
+color:#111; /* ✅ เข้มขึ้น */
 }
 
 /* ========================
@@ -108,7 +108,8 @@ margin-bottom:25px;
 .skill p{
 margin-bottom:8px;
 font-size:14px;
-font-weight:500;
+font-weight:600;
+color:#111; /* ✅ เพิ่ม contrast */
 }
 
 /* skill bar */
@@ -116,21 +117,21 @@ font-weight:500;
 .bar{
 width:100%;
 height:12px;
-background:#e4e6eb;
+background:#d1d5db; /* ✅ เข้มขึ้น */
 border-radius:20px;
 overflow:hidden;
 }
 
 .fill{
 height:100%;
-background:#ff8c00;
+background:#b45309; /* ✅ เข้มขึ้นมาก */
 border-radius:20px;
 text-align:right;
 font-size:10px;
 padding-right:6px;
-color:white;
+color:#ffffff;
 line-height:12px;
-font-weight:600;
+font-weight:700;
 }
 
 /* skill percent */
@@ -141,37 +142,6 @@ font-weight:600;
 .network{ width:50%; }
 .cyber{ width:50%; }
 
-/* ========================
-   RESPONSIVE
-======================== */
-
-@media (max-width:900px){
-
-.cv-content{
-grid-template-columns:1fr;
-}
-
-.cv-info{
-grid-template-columns:1fr 1fr;
-}
-
-}
-
-@media (max-width:500px){
-
-.cv-info{
-grid-template-columns:1fr;
-}
-
-.cv-section{
-padding:70px 6%;
-}
-
-.skills-section{
-padding:70px 6%;
-}
-
-}
 /* ========================
    EDUCATION SECTION
 ======================== */
@@ -184,13 +154,14 @@ background:#f5f7fb;
 .section-title{
 font-size:36px;
 margin:10px 0;
+color:#111;
 }
 
 .timeline{
 position:relative;
 margin-top:50px;
 padding-left:40px;
-border-left:3px solid #ff8c00;
+border-left:3px solid #cc7000; /* ✅ เข้มขึ้น */
 }
 
 /* timeline item */
@@ -215,7 +186,7 @@ left:-10px;
 top:5px;
 width:16px;
 height:16px;
-background:#ff8c00;
+background:#cc7000; /* ✅ เข้มขึ้น */
 border-radius:50%;
 }
 
@@ -230,17 +201,18 @@ box-shadow:0 6px 20px rgba(0,0,0,0.08);
 
 .year{
 font-size:14px;
-color:#777;
-font-weight:500;
+color:#444; /* ✅ เข้มขึ้น */
+font-weight:600;
 }
 
 .timeline-content h3{
 margin:6px 0;
 font-size:20px;
+color:#111;
 }
 
 .timeline-content p{
-color:#555;
+color:#333; /* ✅ เข้มขึ้น */
 font-size:14px;
 line-height:1.7;
 }
@@ -254,34 +226,9 @@ transform:translateY(0);
 }
 }
 
-/* responsive */
-
-@media (max-width:768px){
-
-.timeline{
-padding-left:25px;
-}
-
-.timeline-content{
-padding:18px;
-}
-
-}
-.contact-section{
-padding:80px 10%;
-background:#f4f6f8;
-}
-
-.contact-section h2{
-font-size:32px;
-margin-bottom:20px;
-}
-
-.contact-section p{
-font-size:16px;
-margin-bottom:10px;
-}
-/* CONTACT SECTION */
+/* ========================
+   CONTACT SECTION
+======================== */
 
 .contact-section{
 background:#0a0a0a;
@@ -312,10 +259,8 @@ color:white;
 transition:0.3s;
 }
 
-/* hover */
-
 .contact-item:hover{
-background:#151515;
+background:#1f1f1f;
 transform:translateX(5px);
 }
 
@@ -324,13 +269,13 @@ transform:translateX(5px);
 .contact-icon{
 width:60px;
 height:60px;
-background:#2b1b0f;
+background:#3b2a1a; /* ✅ เข้มขึ้น */
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:22px;
-color:#f5a623;
+color:#ffb347;
 flex-shrink:0;
 }
 
@@ -339,24 +284,36 @@ flex-shrink:0;
 .contact-text h3{
 margin:0;
 font-size:18px;
+color:#ffffff;
 }
 
 .contact-text p{
 margin:5px 0 0;
-color:#c9c9c9;
+color:#e5e5e5; /* ✅ เข้มขึ้น */
 font-size:15px;
 }
 
-/* responsive */
+/* ========================
+   RESPONSIVE
+======================== */
+
+@media (max-width:900px){
+.cv-content{ grid-template-columns:1fr; }
+.cv-info{ grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:500px){
+.cv-info{ grid-template-columns:1fr; }
+.cv-section{ padding:70px 6%; }
+.skills-section{ padding:70px 6%; }
+}
+
+@media (max-width:768px){
+.timeline{ padding-left:25px; }
+.timeline-content{ padding:18px; }
+}
 
 @media (max-width:600px){
-
-.contact-section{
-padding:80px 8%;
-}
-
-.contact-item{
-padding:15px;
-}
-
+.contact-section{ padding:80px 8%; }
+.contact-item{ padding:15px; }
 }
