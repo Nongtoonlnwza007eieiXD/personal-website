@@ -1,26 +1,24 @@
-/* ===== RESET เล็กน้อย (ช่วยลด CLS) ===== */
-* {
-  box-sizing: border-box;
+/* ===== BACKGROUND ===== */
+body.game-bg {
+  background: linear-gradient(135deg, #ffb347, #ff7e5f);
 }
 
-/* ===== SHARED CONTAINER ===== */
+/* ===== TITLE ===== */
+h1, h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ===== CENTER BOX ===== */
 .container-box {
-  width: 520px;
-  margin: 120px auto 0;
-  padding: 40px;
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 35px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
-
-  /* 🔥 แก้ Layout Shift */
-  min-height: 500px;
-}
-
-/* ใช้ class เดียวแทน */
-.game-container,
-#startScreen {
-  color-scheme: container-box;
+  min-height: 400px;
 }
 
 /* ===== RULE BOX ===== */
@@ -28,48 +26,43 @@
   background: #f9f9f9;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  margin: 20px auto;
-  max-width: 420px;
+  margin: 20px 0;
   text-align: left;
 }
 
 /* ===== INPUT ===== */
 #guessInput {
-  width: 250px;
+  width: 70%;
   padding: 12px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px;
   border: 2px solid #ddd;
-  margin-top: 10px;
 }
 
-#guessInput:focus {
-  outline: none;
-  border-color: #ff8c00;
-}
-
-/* ===== BUTTON (รวมให้สั้นลง) ===== */
+/* ===== BUTTON ===== */
 button {
   padding: 12px 25px;
-  font-size: 16px;
-  border: none;
+  margin-top: 15px;
   border-radius: 10px;
-  background: #444;
-  color: #fff;
+  background: #ff8c00;
+  color: white;
+  border: none;
   cursor: pointer;
-  margin-left: 10px;
-  transition: transform 0.2s, background 0.2s;
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #222;
-  transform: scale(1.05);
+  background: #ff6a00;
+}
+
+/* ===== START BUTTON ===== */
+.start-btn {
+  font-size: 20px;
+  padding: 15px 30px;
 }
 
 /* ===== RESTART BUTTON ===== */
 .restart-btn {
-  margin-top: 20px;
   background: #e74c3c;
 }
 
@@ -77,34 +70,14 @@ button:hover {
   background: #c0392b;
 }
 
-/* ===== START BUTTON ===== */
-.start-btn {
-  font-size: 24px;
-  padding: 15px 40px;
-  border-radius: 12px;
-  background: #ff8c00;
-  margin-top: 20px;
-}
-
-.start-btn:hover {
-  background: #ff6a00;
-}
-
-/* ===== SCORE TEXT ===== */
+/* ===== MESSAGE ===== */
 #message {
-  font-size: 18px;
   margin-top: 15px;
   font-weight: bold;
 }
 
-/* ===== WIN ANIMATION (optimize) ===== */
-.win-animation {
-  will-change: transform;
-  animation: winPop 0.6s ease;
-}
-
-@keyframes winPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+/* ===== HOVER EFFECT (เพิ่มความโปร) ===== */
+.container-box:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
 }
