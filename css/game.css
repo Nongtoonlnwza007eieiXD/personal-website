@@ -1,158 +1,110 @@
-/* GAME CONTAINER */
-
-.game-container{
-
-width:520px;
-margin:auto;
-margin-top:120px;
-padding:40px;
-background:white;
-border-radius:20px;
-box-shadow:0 12px 35px rgba(0,0,0,0.15);
-text-align:center;
-
+/* ===== RESET เล็กน้อย (ช่วยลด CLS) ===== */
+* {
+  box-sizing: border-box;
 }
 
+/* ===== SHARED CONTAINER ===== */
+.container-box {
+  width: 520px;
+  margin: 120px auto 0;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  text-align: center;
 
-/* RULE BOX */
-
-.rules{
-
-background:#f9f9f9;
-padding:20px;
-border-radius:15px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
-margin:20px auto;
-max-width:420px;
-text-align:left;
-
+  /* 🔥 แก้ Layout Shift */
+  min-height: 500px;
 }
 
-
-/* INPUT */
-
-#guessInput{
-
-width:250px;
-padding:12px;
-font-size:18px;
-border-radius:10px;
-border:2px solid #ddd;
-margin-top:10px;
-
+/* ใช้ class เดียวแทน */
+.game-container,
+#startScreen {
+  color-scheme: container-box;
 }
 
-#guessInput:focus{
-
-outline:none;
-border-color:#ff8c00;
-
+/* ===== RULE BOX ===== */
+.rules {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  margin: 20px auto;
+  max-width: 420px;
+  text-align: left;
 }
 
-
-/* BUTTON */
-
-button{
-
-padding:12px 25px;
-font-size:16px;
-border:none;
-border-radius:10px;
-background:#444;
-color:white;
-cursor:pointer;
-margin-left:10px;
-transition:0.2s;
-
+/* ===== INPUT ===== */
+#guessInput {
+  width: 250px;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  margin-top: 10px;
 }
 
-button:hover{
-
-background:#222;
-transform:scale(1.05);
-
+#guessInput:focus {
+  outline: none;
+  border-color: #ff8c00;
 }
 
-
-/* RESTART BUTTON */
-
-.restart-btn{
-
-margin-top:20px;
-background:#e74c3c;
-
+/* ===== BUTTON (รวมให้สั้นลง) ===== */
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s, background 0.2s;
 }
 
-.restart-btn:hover{
-
-background:#c0392b;
-
+button:hover {
+  background: #222;
+  transform: scale(1.05);
 }
 
-
-/* START SCREEN */
-
-#startScreen{
-
-width:520px;
-margin:auto;
-margin-top:120px;
-padding:40px;
-background:white;
-border-radius:20px;
-box-shadow:0 12px 35px rgba(0,0,0,0.15);
-text-align:center;
-
+/* ===== RESTART BUTTON ===== */
+.restart-btn {
+  margin-top: 20px;
+  background: #e74c3c;
 }
 
-
-/* START BUTTON */
-
-.start-btn{
-
-font-size:24px;
-padding:15px 40px;
-border:none;
-border-radius:12px;
-background:#ff8c00;
-color:white;
-cursor:pointer;
-margin-top:20px;
-transition:0.2s;
-
+.restart-btn:hover {
+  background: #c0392b;
 }
 
-.start-btn:hover{
-
-background:#ff6a00;
-transform:scale(1.05);
-
+/* ===== START BUTTON ===== */
+.start-btn {
+  font-size: 24px;
+  padding: 15px 40px;
+  border-radius: 12px;
+  background: #ff8c00;
+  margin-top: 20px;
 }
 
-
-/* SCORE TEXT */
-
-#message{
-
-font-size:18px;
-margin-top:15px;
-font-weight:bold;
-
+.start-btn:hover {
+  background: #ff6a00;
 }
 
-
-/* WIN ANIMATION */
-
-.win-animation{
-
-animation:winPop 0.6s ease;
-
+/* ===== SCORE TEXT ===== */
+#message {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-@keyframes winPop{
+/* ===== WIN ANIMATION (optimize) ===== */
+.win-animation {
+  will-change: transform;
+  animation: winPop 0.6s ease;
+}
 
-0%{transform:scale(1)}
-50%{transform:scale(1.15)}
-100%{transform:scale(1)}
-
+@keyframes winPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
