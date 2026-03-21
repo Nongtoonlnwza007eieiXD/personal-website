@@ -1,6 +1,12 @@
+/* ===== RESET กัน layout เพี้ยน ===== */
+* {
+  box-sizing: border-box;
+}
+
 /* ===== BACKGROUND ===== */
 body.game-bg {
   background: linear-gradient(135deg, #ffb347, #ff7e5f);
+  min-height: 100vh; /* 🔥 กัน CLS */
 }
 
 /* ===== TITLE ===== */
@@ -18,7 +24,8 @@ h1, h2 {
   border-radius: 20px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
-  min-height: 400px;
+
+  min-height: 500px; /* 🔥 แก้ CLS ตัวหลัก */
 }
 
 /* ===== RULE BOX ===== */
@@ -44,15 +51,21 @@ button {
   padding: 12px 25px;
   margin-top: 15px;
   border-radius: 10px;
-  background: #ff8c00;
-  color: white;
+
+  /* 🔥 แก้ contrast */
+  background: #d35400;
+  color: #fff;
+
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+
+  /* 🔥 จำกัด transition */
+  transition: transform 0.2s, background 0.2s;
 }
 
 button:hover {
-  background: #ff6a00;
+  background: #a84300;
+  transform: translateY(-2px);
 }
 
 /* ===== START BUTTON ===== */
@@ -63,11 +76,11 @@ button:hover {
 
 /* ===== RESTART BUTTON ===== */
 .restart-btn {
-  background: #e74c3c;
+  background: #c0392b;
 }
 
 .restart-btn:hover {
-  background: #c0392b;
+  background: #922b21;
 }
 
 /* ===== MESSAGE ===== */
@@ -76,8 +89,11 @@ button:hover {
   font-weight: bold;
 }
 
-/* ===== HOVER EFFECT (เพิ่มความโปร) ===== */
+/* ===== SAFE ANIMATION (ไม่ทำให้ CLS เพิ่ม) ===== */
+.container-box {
+  will-change: transform;
+}
+
 .container-box:hover {
   transform: translateY(-3px);
-  transition: 0.3s;
 }

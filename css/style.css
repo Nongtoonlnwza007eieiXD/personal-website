@@ -246,18 +246,9 @@ margin-bottom:10px;
 /* ======================
 GAME BACKGROUND
 ====================== */
-
 .game-bg{
 min-height:100vh;
-background:linear-gradient(120deg,#4facfe,#00f2fe,#ff9966,#ff5e62);
-background-size:300% 300%;
-animation:sunsetMove 15s ease infinite;
-}
-
-@keyframes sunsetMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+background:linear-gradient(135deg,#ffb347,#ff7e5f);
 }
 
 /* ======================
