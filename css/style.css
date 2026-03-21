@@ -1,4 +1,4 @@
-/* COLOR SYSTEM */
+/* COLOR SYSTEM กำหนดตัวแปรสีหลักของเว็บไซต์ เพื่อให้แก้ธีมได้ง่ายและสม่ำเสมอ */
 :root{
   --bg:#ffffff;
   --text:#111111;
@@ -14,14 +14,14 @@
   --shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-/* RESET */
+/* RESET รีเซ็ต margin padding และ box model เพื่อให้ layout เท่ากันทุก browser */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-/* GLOBAL */
+/* GLOBAL กำหนด font สี และพื้นฐานของทั้งเว็บไซต์ */
 body{
   font-family:Segoe UI, system-ui, sans-serif;
   background:var(--bg);
@@ -29,13 +29,7 @@ body{
   line-height:1.6;
 }
 
-/* LAYOUT FIX (ช่วย PageSpeed + Responsive) */
-main{
-  max-width:1200px;
-  margin:auto;
-}
-
-/* NAVBAR */
+/* NAVBAR แถบเมนูด้านบน ใช้ flex เพื่อจัด layout */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -48,29 +42,32 @@ main{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-/* LOGO */
+/* LOGO ข้อความชื่อเว็บไซต์ */
 .logo{
   font-size:22px;
   font-weight:700;
 }
 
+/* LOGO ACCENT เปลี่ยนสีจุดให้เด่น */
 .logo span{
   color:var(--accent);
 }
 
-/* NAV */
+/* NAV CONTAINER จัด layout เมนู */
 nav{
   display:flex;
   align-items:center;
   gap:25px;
 }
 
+/* NAV LINKS รายการเมนู */
 .nav-links{
   display:flex;
   list-style:none;
   gap:25px;
 }
 
+/* NAV LINK STYLE ตกแต่งลิงก์ */
 nav a{
   text-decoration:none;
   color:var(--text);
@@ -80,7 +77,7 @@ nav a{
   font-size:15px;
 }
 
-/* NAV ANIMATION */
+/* UNDERLINE ANIMATION เส้นใต้เวลา hover */
 nav a::after{
   content:"";
   position:absolute;
@@ -89,15 +86,20 @@ nav a::after{
   width:0%;
   height:2px;
   background:var(--accent);
-  transition:width .3s ease;
+  transition:.3s;
 }
 
-nav a:hover::after,
-nav a:focus::after{
+/* HOVER EFFECT */
+nav a:hover::after{
   width:100%;
 }
 
-/* HERO */
+/* ACTIVE PAGE */
+nav a.active::after{
+  width:100%;
+}
+
+/* HERO SECTION ส่วนแนะนำตัว */
 .hero{
   display:flex;
   justify-content:space-between;
@@ -107,6 +109,7 @@ nav a:focus::after{
   gap:60px;
 }
 
+/* INTRO TEXT */
 .intro{
   color:var(--text-soft);
   margin-bottom:10px;
@@ -114,15 +117,18 @@ nav a:focus::after{
   font-weight:600;
 }
 
+/* MAIN TITLE */
 .hero-left h1{
   font-size:46px;
   margin-bottom:15px;
 }
 
+/* NAME HIGHLIGHT */
 .hero-left span{
   color:var(--accent);
 }
 
+/* DESCRIPTION TEXT */
 .description{
   line-height:1.7;
   margin-bottom:28px;
@@ -131,12 +137,13 @@ nav a:focus::after{
   max-width:480px;
 }
 
-/* BUTTONS (แก้ Accessibility เต็ม 100) */
+/* BUTTON GROUP */
 .buttons{
   display:flex;
   gap:15px;
 }
 
+/* PRIMARY BUTTON + MENU BUTTON ปุ่มหลักของเว็บไซต์ */
 .btn-primary,
 .menu-btn{
   background:var(--accent);
@@ -148,30 +155,24 @@ nav a:focus::after{
   display:inline-block;
   font-weight:600;
   margin-top:28px;
-  transition:background .25s ease, transform .2s ease;
+  transition:0.25s;
 }
 
-/* HOVER */
+/* BUTTON HOVER */
 .btn-primary:hover,
 .menu-btn:hover{
   background:var(--accent-hover);
+  transform:scale(1.05);
 }
 
-/* FOCUS */
-.btn-primary:focus,
-.menu-btn:focus,
-nav a:focus{
-  outline:3px solid #ffb366;
-  outline-offset:2px;
-}
-
-/* PROFILE */
+/* PROFILE CONTAINER */
 .hero-right{
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
+/* PROFILE IMAGE CIRCLE */
 .profile-circle{
   width:260px;
   height:260px;
@@ -180,24 +181,27 @@ nav a:focus{
   box-shadow:var(--shadow);
 }
 
+/* PROFILE IMAGE */
 .profile-circle img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* PORTFOLIO */
+/* PORTFOLIO SECTION ส่วนแสดงโปรเจค */
 .menu-section{
   padding:100px 8%;
   text-align:center;
   background:var(--section);
 }
 
+/* SECTION TITLE */
 .menu-section h2{
   margin-bottom:50px;
   font-size:34px;
 }
 
+/* GRID LAYOUT */
 .menu-container{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -206,25 +210,28 @@ nav a:focus{
   margin:auto;
 }
 
-/* CARD */
+/* CARD STYLE */
 .menu-card{
   background:var(--card);
   padding:45px 35px;
   border-radius:18px;
   box-shadow:var(--shadow);
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:0.35s;
 }
 
+/* CARD HOVER EFFECT */
 .menu-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  transform:translateY(-8px);
+  box-shadow:0 25px 50px rgba(0,0,0,0.18);
 }
 
+/* CARD TITLE */
 .menu-card h3{
   margin-bottom:15px;
   font-size:20px;
 }
 
+/* CARD TEXT */
 .menu-card p{
   color:var(--text-soft);
   font-size:15px;
@@ -232,7 +239,7 @@ nav a:focus{
   margin-bottom:10px;
 }
 
-/* TABLET */
+/* TABLET RESPONSIVE */
 @media (max-width:900px){
 
   .navbar{
@@ -263,7 +270,7 @@ nav a:focus{
   }
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 @media (max-width:600px){
 
   .navbar{
