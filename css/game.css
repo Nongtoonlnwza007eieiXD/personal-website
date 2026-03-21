@@ -5,12 +5,16 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 /* ===== BACKGROUND ===== */
 body.game-bg {
   background: linear-gradient(135deg, #ffb347, #ff7e5f);
   min-height: 100vh;
-  display: flex;              /* 🔥 กัน layout shift */
-  flex-direction: column;
+
+  /* ❌ ลบ flex ออก (ตัวทำ CLS) */
 }
 
 /* ===== TITLE ===== */
@@ -19,26 +23,26 @@ h1, h2 {
   margin-top: 30px;
 }
 
-/* ===== MAIN CENTER (สำคัญมาก) ===== */
+/* ===== MAIN ===== */
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: block; /* 🔥 กัน layout shift */
 }
 
 /* ===== CENTER BOX ===== */
 .container-box {
   width: 100%;
   max-width: 520px;
-  margin: 40px auto;
+
+  /* 🔥 ใช้ margin จัดกลางแทน flex */
+  margin: 120px auto;
+
   padding: 35px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
 
-  min-height: 520px; /* 🔥 เพิ่มอีกนิด กัน CLS */
+  min-height: 520px; /* 🔥 ล็อคขนาด */
 }
 
 /* ===== RULE BOX ===== */
