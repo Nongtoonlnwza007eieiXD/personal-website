@@ -22,7 +22,6 @@
 <body class="game-bg">
 
 <header class="navbar">
-
 <div class="logo">Portfolio<span>.</span></div>
 
 <nav>
@@ -34,9 +33,10 @@
 <li><a href="about.html#contact">Contact</a></li>
 </ul>
 </nav>
-
 </header>
 
+<!-- 🔥 เพิ่ม main -->
+<main>
 
 <!-- START SCREEN -->
 <div id="startScreen" class="container-box">
@@ -44,7 +44,8 @@
 <h1>🎮 Number Guessing Game</h1>
 
 <div class="rules">
-<h3>📜 กติกาการเล่น</h3>
+<!-- 🔥 แก้ h3 → h2 -->
+<h2>📜 กติกาการเล่น</h2>
 
 <p>🔢 ระบบจะสุ่มตัวเลขระหว่าง <b>1 - 100</b></p>
 <p>🎯 ทายตัวเลขให้ถูกต้อง</p>
@@ -61,13 +62,13 @@
 
 </div>
 
-
 <!-- GAME AREA -->
 <div id="gameArea" class="container-box" hidden>
 
 <h2>🎮 เกมทายตัวเลข</h2>
 
-<h3>🏆 Leaderboard</h3>
+<!-- 🔥 แก้ h3 → h2 -->
+<h2>🏆 Leaderboard</h2>
 
 <ol id="leaderboard">
 <li>0</li>
@@ -103,6 +104,7 @@ inputmode="numeric"
 
 </div>
 
+</main>
 
 <!-- SOUND -->
 <audio id="winSound" preload="none">

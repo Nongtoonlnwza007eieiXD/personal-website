@@ -1,12 +1,16 @@
 /* ===== RESET กัน layout เพี้ยน ===== */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===== BACKGROUND ===== */
 body.game-bg {
   background: linear-gradient(135deg, #ffb347, #ff7e5f);
-  min-height: 100vh; /* 🔥 กัน CLS */
+  min-height: 100vh;
+  display: flex;              /* 🔥 กัน layout shift */
+  flex-direction: column;
 }
 
 /* ===== TITLE ===== */
@@ -15,8 +19,17 @@ h1, h2 {
   margin-top: 30px;
 }
 
+/* ===== MAIN CENTER (สำคัญมาก) ===== */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 /* ===== CENTER BOX ===== */
 .container-box {
+  width: 100%;
   max-width: 520px;
   margin: 40px auto;
   padding: 35px;
@@ -25,7 +38,7 @@ h1, h2 {
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
 
-  min-height: 500px; /* 🔥 แก้ CLS ตัวหลัก */
+  min-height: 520px; /* 🔥 เพิ่มอีกนิด กัน CLS */
 }
 
 /* ===== RULE BOX ===== */
@@ -52,14 +65,12 @@ button {
   margin-top: 15px;
   border-radius: 10px;
 
-  /* 🔥 แก้ contrast */
   background: #d35400;
   color: #fff;
 
   border: none;
   cursor: pointer;
 
-  /* 🔥 จำกัด transition */
   transition: transform 0.2s, background 0.2s;
 }
 
@@ -89,7 +100,7 @@ button:hover {
   font-weight: bold;
 }
 
-/* ===== SAFE ANIMATION (ไม่ทำให้ CLS เพิ่ม) ===== */
+/* ===== SAFE ANIMATION ===== */
 .container-box {
   will-change: transform;
 }
