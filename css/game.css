@@ -1,5 +1,6 @@
-/* ===== RESET ===== */
+/* [1] ===== RESET & GLOBAL ===== */
 * {
+  /* [BEST PRACTICE] ใช้ border-box เพื่อให้การคำนวณ Width/Height รวม Padding และ Border แล้ว */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,81 +8,87 @@
 
 html, body {
   height: 100%;
-  /* ❌ เอา Arial ออก เพื่อไม่ให้ทับ style.css */
 }
 
-/* ===== BACKGROUND ===== */
+/* [2] ===== BACKGROUND & THEME ===== */
 body.game-bg {
+  /* ใช้ Linear Gradient เพื่อสร้างความทันสมัยและแยกความต่างจากหน้าอื่นๆ */
   background: linear-gradient(135deg, #ffb347, #ff7e5f);
+  background-attachment: fixed;
 }
 
-/* ===== NAVBAR ===== */
-header {
-  width: 100%;
-}
-
-/* ===== MAIN (จัดกลางเฉพาะส่วนเกม) ===== */
+/* [3] ===== LAYOUT MANAGEMENT (FLEXBOX) ===== */
 main {
-  min-height: calc(100vh - 80px);
+  /* [REQUIREMENT 2.4] ใช้ Flexbox เพื่อจัดให้พื้นที่เกมอยู่กึ่งกลางหน้าจอเสมอ (Viewport Centering) */
+  min-height: calc(100vh - 80px); /* หักลบความสูงของ Navbar ออก */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* จัดแนวนอน */
+  align-items: center;     /* จัดแนวตั้ง */
+  padding: 20px;
 }
 
-/* ===== BOX ===== */
+/* [4] ===== GAME CONTAINER BOX ===== */
 .container-box {
   width: 100%;
   max-width: 520px;
-
+  min-height: 520px;
   padding: 35px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 20px;
+  /* ใช้ Box Shadow เพื่อสร้างมิติ (Depth) ให้กับ UI */
   box-shadow: 0 12px 35px rgba(0,0,0,0.15);
   text-align: center;
-
-  min-height: 520px;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease; /* เตรียมไว้สำหรับการทำ Hover Effect */
 }
 
+/* [BEST PRACTICE] เพิ่ม Micro-interaction เพื่อสื่อสารกับ User ว่า Element นี้โต้ตอบได้ */
 .container-box:hover {
   transform: translateY(-3px);
 }
 
-/* ===== TITLE ===== */
+/* [5] ===== UI ELEMENTS ===== */
 h1, h2 {
   margin-bottom: 20px;
+  color: #333;
 }
 
-/* ===== RULE BOX ===== */
 .rules {
+  /* จัดกลุ่มกติกาให้เป็นระเบียบด้วยพื้นหลังที่แตกต่าง */
   background: #f9f9f9;
   padding: 20px;
   border-radius: 15px;
   margin: 20px 0;
   text-align: left;
+  border-left: 5px solid #7a2f00; /* เน้นจุดเด่นของส่วนกติกา */
 }
 
-/* ===== INPUT ===== */
+/* [6] ===== FORMS & INPUTS ===== */
 #guessInput {
   width: 70%;
   padding: 12px;
   font-size: 16px;
   border-radius: 10px;
   border: 2px solid #ddd;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-/* ===== BUTTON ===== */
+/* เพิ่มสถานะ Focus เพื่อให้ User ทราบว่ากำลังพิมพ์อยู่ที่ช่องนี้ */
+#guessInput:focus {
+  border-color: #7a2f00;
+}
+
+/* [7] ===== BUTTONS (COMPONENTS) ===== */
 button {
   padding: 12px 25px;
   margin-top: 15px;
   border-radius: 10px;
-
   background: #7a2f00; 
   color: #fff;
-
   border: none;
+  font-weight: 600;
   cursor: pointer;
-
+  /* ใช้ Transition เพื่อให้การเปลี่ยนสีและตำแหน่งนุ่มนวล */
   transition: transform 0.2s, background 0.2s;
 }
 
@@ -90,23 +97,28 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* ===== START BUTTON ===== */
+/* สถานะ Active เมื่อปุ่มถูกคลิก */
+button:active {
+  transform: translateY(0);
+}
+
 .start-btn {
   font-size: 20px;
   padding: 15px 30px;
 }
 
-/* ===== RESTART BUTTON ===== */
 .restart-btn {
-  background: #c0392b;
+  background: #c0392b; /* ใช้สีแดงเพื่อแยกฟังก์ชันการ Reset ออกมาให้ชัดเจน */
 }
 
 .restart-btn:hover {
   background: #922b21;
 }
 
-/* ===== MESSAGE ===== */
+/* [8] ===== FEEDBACK MESSAGE ===== */
 #message {
   margin-top: 15px;
+  font-size: 18px;
   font-weight: bold;
+  min-height: 27px; /* จองพื้นที่ไว้เพื่อไม่ให้ Layout กระตุกเมื่อข้อความปรากฏ */
 }
