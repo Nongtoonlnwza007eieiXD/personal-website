@@ -26,7 +26,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="game.html">Game</a></li>
-                <li><a href="clock.html" class="active">Clock</a></li>
+                <li><a href="clock.html" class="active" aria-current="page">Clock</a></li>
                 <li><a href="about.html#contact">Contact</a></li>
             </ul>
         </nav>
@@ -67,10 +67,10 @@
                     <div class="number n11">11</div>
                     <div class="number n12">12</div>
 
-                    <!-- เข็มนาฬิกา -->
-                    <div class="hand hour" id="hour" aria-label="เข็มชั่วโมง"></div>
-                    <div class="hand minute" id="minute" aria-label="เข็มนาที"></div>
-                    <div class="hand second" id="second" aria-label="เข็มวินาที"></div>
+                    <!-- เข็มนาฬิกา (ลบ aria-label ที่ไม่จำเป็นออก) -->
+                    <div class="hand hour" id="hour"></div>
+                    <div class="hand minute" id="minute"></div>
+                    <div class="hand second" id="second"></div>
 
                     <div class="center"></div>
                 </section>
