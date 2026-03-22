@@ -1,4 +1,4 @@
-/* COLOR SYSTEM กำหนดตัวแปรสีหลักของเว็บไซต์ เพื่อให้แก้ธีมได้ง่ายและสม่ำเสมอ */
+/* COLOR SYSTEM กำหนดตัวแปรสีหลักของเว็บไซต์ เพื่อให้แก้ไขธีม สี และเงา */
 :root{
   --bg:#ffffff;
   --text:#111111;
@@ -14,14 +14,14 @@
   --shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-/* RESET รีเซ็ต margin padding และ box model เพื่อให้ layout เท่ากันทุก browser */
+/* RESET รีเซ็ต margin padding และ box model เพื่อให้ทุก browser แสดงผลใกล้เคียงกัน */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-/* GLOBAL กำหนด font สี และพื้นฐานของทั้งเว็บไซต์ */
+/* GLOBAL STYLE กำหนด font สีพื้นหลัง สีข้อความ และระยะห่างบรรทัดของทั้งเว็บไซต์ */
 body{
   font-family:Segoe UI, system-ui, sans-serif;
   background:var(--bg);
@@ -29,7 +29,7 @@ body{
   line-height:1.6;
 }
 
-/* NAVBAR แถบเมนูด้านบน ใช้ flex เพื่อจัด layout */
+/* NAVBAR แถบเมนูหลักด้านบน ใช้ Flexbox จัดตำแหน่งโลโก้และเมนูให้อยู่คนละฝั่ง */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -42,32 +42,32 @@ body{
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
 
-/* LOGO ข้อความชื่อเว็บไซต์ */
+/* LOGO ข้อความชื่อเว็บไซต์หรือชื่อเจ้าของเว็บไซต์ */
 .logo{
   font-size:22px;
   font-weight:700;
 }
 
-/* LOGO ACCENT เปลี่ยนสีจุดให้เด่น */
+/* LOGO ACCENT เน้นบางส่วนของโลโก้ด้วยสีหลักของเว็บไซต์ */
 .logo span{
   color:var(--accent);
 }
 
-/* NAV CONTAINER จัด layout เมนู */
+/* NAV CONTAINER กล่องครอบเมนู ใช้ flex เพื่อจัดลิงก์ให้อยู่ในแนวเดียวกัน */
 nav{
   display:flex;
   align-items:center;
   gap:25px;
 }
 
-/* NAV LINKS รายการเมนู */
+/* NAV LINKS รายการเมนูหลักของเว็บไซต์ */
 .nav-links{
   display:flex;
   list-style:none;
   gap:25px;
 }
 
-/* NAV LINK STYLE ตกแต่งลิงก์ */
+/* NAV LINK STYLE ตกแต่งลิงก์เมนูให้ดูสะอาดและกดง่าย */
 nav a{
   text-decoration:none;
   color:var(--text);
@@ -77,7 +77,7 @@ nav a{
   font-size:15px;
 }
 
-/* UNDERLINE ANIMATION เส้นใต้เวลา hover */
+/* UNDERLINE ANIMATION สร้างเส้นใต้แบบ animation เพื่อเพิ่ม interaction ตอน hover */
 nav a::after{
   content:"";
   position:absolute;
@@ -89,17 +89,17 @@ nav a::after{
   transition:.3s;
 }
 
-/* HOVER EFFECT */
+/* NAV HOVER EFFECT แสดงเส้นใต้เต็มความกว้างเมื่อลากเมาส์ผ่าน */
 nav a:hover::after{
   width:100%;
 }
 
-/* ACTIVE PAGE */
+/* ACTIVE PAGE แสดงเส้นใต้ค้างไว้ในหน้าที่กำลังใช้งานอยู่ */
 nav a.active::after{
   width:100%;
 }
 
-/* HERO SECTION ส่วนแนะนำตัว */
+/* HERO SECTION ส่วนแนะนำตัวหลักของหน้าแรก จัดข้อความและรูปภาพให้อยู่คนละด้าน */
 .hero{
   display:flex;
   justify-content:space-between;
@@ -109,7 +109,7 @@ nav a.active::after{
   gap:60px;
 }
 
-/* INTRO TEXT */
+/* INTRO TEXT ข้อความเกริ่นนำสั้นๆ เหนือหัวข้อหลัก */
 .intro{
   color:var(--text-soft);
   margin-bottom:10px;
@@ -117,18 +117,18 @@ nav a.active::after{
   font-weight:600;
 }
 
-/* MAIN TITLE */
+/* MAIN TITLE หัวข้อหลักของหน้าแรก เช่น ชื่อหรือข้อความแนะนำตัว */
 .hero-left h1{
   font-size:46px;
   margin-bottom:15px;
 }
 
-/* NAME HIGHLIGHT */
+/* NAME HIGHLIGHT ใช้เน้นชื่อหรือข้อความสำคัญในหัวข้อหลัก */
 .hero-left span{
   color:var(--accent);
 }
 
-/* DESCRIPTION TEXT */
+/* DESCRIPTION TEXT ข้อความอธิบายตัวเองหรือเว็บไซต์เพิ่มเติม */
 .description{
   line-height:1.7;
   margin-bottom:28px;
@@ -137,13 +137,13 @@ nav a.active::after{
   max-width:480px;
 }
 
-/* BUTTON GROUP */
+/* BUTTON GROUP กลุ่มปุ่ม เช่น ปุ่มดูผลงานหรือปุ่มติดต่อ */
 .buttons{
   display:flex;
   gap:15px;
 }
 
-/* PRIMARY BUTTON + MENU BUTTON ปุ่มหลักของเว็บไซต์ */
+/* PRIMARY BUTTON และ MENU BUTTON ปุ่มหลักของเว็บไซต์ ใช้สี accent เพื่อให้เด่น */
 .btn-primary,
 .menu-btn{
   background:var(--accent);
@@ -158,21 +158,21 @@ nav a.active::after{
   transition:0.25s;
 }
 
-/* BUTTON HOVER */
+/* BUTTON HOVER EFFECT เปลี่ยนสีและขยายเล็กน้อยเพื่อให้ผู้ใช้รู้ว่าปุ่มสามารถกดได้ */
 .btn-primary:hover,
 .menu-btn:hover{
   background:var(--accent-hover);
   transform:scale(1.05);
 }
 
-/* PROFILE CONTAINER */
+/* PROFILE CONTAINER กล่องครอบรูปโปรไฟล์ จัดให้อยู่กึ่งกลาง */
 .hero-right{
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* PROFILE IMAGE CIRCLE */
+/* PROFILE IMAGE CIRCLE ทำให้รูปโปรไฟล์เป็นวงกลมและเพิ่มเงา */
 .profile-circle{
   width:260px;
   height:260px;
@@ -181,27 +181,27 @@ nav a.active::after{
   box-shadow:var(--shadow);
 }
 
-/* PROFILE IMAGE */
+/* PROFILE IMAGE ทำให้รูปเต็มกรอบและไม่เสียสัดส่วน */
 .profile-circle img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* PORTFOLIO SECTION ส่วนแสดงโปรเจค */
+/* PORTFOLIO SECTION ส่วนแสดงผลงานหรือเมนูต่างๆ ของเว็บไซต์ */
 .menu-section{
   padding:100px 8%;
   text-align:center;
   background:var(--section);
 }
 
-/* SECTION TITLE */
+/* SECTION TITLE หัวข้อหลักของส่วนผลงาน */
 .menu-section h2{
   margin-bottom:50px;
   font-size:34px;
 }
 
-/* GRID LAYOUT */
+/* GRID LAYOUT ใช้ CSS Grid จัดการ์ดผลงานให้เป็นระเบียบหลายคอลัมน์ */
 .menu-container{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -210,7 +210,7 @@ nav a.active::after{
   margin:auto;
 }
 
-/* CARD STYLE */
+/* CARD STYLE การ์ดแต่ละใบสำหรับแสดงโปรเจกต์หรือเมนูย่อย */
 .menu-card{
   background:var(--card);
   padding:45px 35px;
@@ -219,19 +219,19 @@ nav a.active::after{
   transition:0.35s;
 }
 
-/* CARD HOVER EFFECT */
+/* CARD HOVER EFFECT เพิ่มเอฟเฟกต์ยกการ์ดขึ้นเมื่อชี้เมาส์ */
 .menu-card:hover{
   transform:translateY(-8px);
   box-shadow:0 25px 50px rgba(0,0,0,0.18);
 }
 
-/* CARD TITLE */
+/* CARD TITLE ชื่อของผลงานหรือเมนูในการ์ด */
 .menu-card h3{
   margin-bottom:15px;
   font-size:20px;
 }
 
-/* CARD TEXT */
+/* CARD TEXT ข้อความอธิบายรายละเอียดสั้นๆ ของการ์ด */
 .menu-card p{
   color:var(--text-soft);
   font-size:15px;
@@ -239,94 +239,112 @@ nav a.active::after{
   margin-bottom:10px;
 }
 
-/* TABLET RESPONSIVE */
+/* TABLET RESPONSIVE ปรับ layout สำหรับหน้าจอแท็บเล็ตและหน้าจอขนาดกลาง */
 @media (max-width:900px){
 
+  /* ลด padding ของ navbar ให้เหมาะกับพื้นที่หน้าจอ */
   .navbar{
     padding:18px 40px;
   }
 
+  /* เปลี่ยน hero เป็นแนวตั้งเพื่อให้อ่านง่ายบนจอแคบ */
   .hero{
     flex-direction:column;
     text-align:center;
     padding:60px 30px;
   }
 
+  /* ลดขนาดหัวข้อหลักให้พอดีกับหน้าจอ */
   .hero-left h1{
     font-size:36px;
   }
 
+  /* ลดขนาดรูปโปรไฟล์ */
   .profile-circle{
     width:220px;
     height:220px;
   }
 
+  /* จัดปุ่มให้อยู่กึ่งกลาง */
   .buttons{
     justify-content:center;
   }
 
+  /* ลดจำนวนคอลัมน์ของการ์ดจาก 3 เหลือ 2 */
   .menu-container{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE RESPONSIVE ปรับ layout สำหรับโทรศัพท์มือถือ */
 @media (max-width:600px){
 
+  /* จัด navbar เป็นแนวตั้งเพื่อไม่ให้เมนูล้น */
   .navbar{
     flex-direction:column;
     gap:12px;
     padding:15px;
   }
 
+  /* อนุญาตให้เมนูขึ้นบรรทัดใหม่ได้ */
   nav{
     flex-wrap:wrap;
     justify-content:center;
     gap:15px;
   }
 
+  /* จัดรายการเมนูให้อยู่กึ่งกลางและขึ้นบรรทัดใหม่ได้ */
   .nav-links{
     gap:15px;
     flex-wrap:wrap;
     justify-content:center;
   }
 
+  /* ลด padding และช่องว่างของ hero section */
   .hero{
     padding:40px 20px;
     gap:30px;
   }
 
+  /* ลดขนาดหัวข้อให้เหมาะกับมือถือ */
   .hero-left h1{
     font-size:28px;
   }
 
+  /* ลดขนาดข้อความ description */
   .description{
     font-size:14px;
   }
 
+  /* เรียงปุ่มในแนวตั้งเพื่อกดง่ายบนจอสัมผัส */
   .buttons{
     flex-direction:column;
     gap:10px;
   }
 
+  /* ทำให้ปุ่มหลักกว้างเต็มพื้นที่ */
   .btn-primary{
     width:100%;
     text-align:center;
   }
 
+  /* ลดขนาดรูปโปรไฟล์อีกระดับสำหรับมือถือ */
   .profile-circle{
     width:180px;
     height:180px;
   }
 
+  /* แสดงการ์ดเป็น 1 คอลัมน์ */
   .menu-container{
     grid-template-columns:1fr;
   }
 
+  /* ลด padding ภายในการ์ดเพื่อประหยัดพื้นที่ */
   .menu-card{
     padding:35px 25px;
   }
 
+  /* ลดขนาดหัวข้อ section */
   .menu-section h2{
     font-size:26px;
   }

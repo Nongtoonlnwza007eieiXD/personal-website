@@ -1,26 +1,24 @@
-/* RESET & GLOBAL */
-
+/* RESET & GLOBAL รีเซ็ตค่า margin padding และกำหนด box model เพื่อให้ layout แสดงผลเหมือนกันทุก browser */
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+/* HTML & BODY HEIGHT กำหนดความสูงเต็มหน้าจอ เพื่อใช้กับ layout แบบ flex ได้ถูกต้อง */
 html, body{
   height:100%;
 }
 
 
-/* BACKGROUND */
-
+/* BACKGROUND พื้นหลังของหน้าเกม ใช้ gradient เพื่อให้ดูมีสีสันและไม่เรียบเกินไป */
 body.game-bg{
   background:linear-gradient(135deg,#ffb347,#ff7e5f);
   background-attachment:fixed;
 }
 
 
-/* LAYOUT */
-
+/* MAIN LAYOUT จัดตำแหน่งเนื้อหาให้อยู่กึ่งกลางหน้าจอทั้งแนวนอนและแนวตั้ง */
 main{
   min-height:calc(100vh - 80px);
   display:flex;
@@ -30,8 +28,7 @@ main{
 }
 
 
-/* GAME BOX */
-
+/* GAME BOX กล่องหลักของเกม ใช้เป็น container สำหรับเนื้อหาทั้งหมด */
 .container-box{
   width:100%;
   max-width:520px;
@@ -44,18 +41,19 @@ main{
   transition:transform 0.2s ease;
 }
 
+/* GAME BOX HOVER เพิ่มเอฟเฟกต์ยกขึ้นเล็กน้อยเมื่อชี้เมาส์ */
 .container-box:hover{
   transform:translateY(-3px);
 }
 
 
-/* TEXT & RULES */
-
+/* TEXT & RULES หัวข้อและกล่องกติกาเกม */
 h1,h2{
   margin-bottom:20px;
   color:#333;
 }
 
+/* RULES BOX กล่องแสดงกติกา ใช้พื้นหลังอ่อนและเส้นด้านซ้ายเพื่อเน้น */
 .rules{
   background:#f9f9f9;
   padding:20px;
@@ -66,8 +64,7 @@ h1,h2{
 }
 
 
-/* INPUT */
-
+/* INPUT ช่องกรอกตัวเลขสำหรับผู้เล่น */
 #guessInput{
   width:70%;
   padding:12px;
@@ -78,13 +75,13 @@ h1,h2{
   transition:border-color 0.3s;
 }
 
+/* INPUT FOCUS เปลี่ยนสี border เมื่อผู้ใช้กำลังพิมพ์ */
 #guessInput:focus{
   border-color:#7a2f00;
 }
 
 
-/*  BUTTON */
-
+/* BUTTON ปุ่มหลักของเกม เช่น ปุ่มทาย ปุ่มเริ่ม และปุ่มรีสตาร์ท */
 button{
   padding:12px 25px;
   margin-top:15px;
@@ -97,34 +94,38 @@ button{
   transition:transform 0.2s, background 0.2s;
 }
 
+/* BUTTON HOVER เพิ่ม feedback เมื่อชี้เมาส์ */
 button:hover{
   background:#4d1d00;
   transform:translateY(-2px);
 }
 
+/* BUTTON ACTIVE ลดเอฟเฟกต์เมื่อกด */
 button:active{
   transform:translateY(0);
 }
 
+/* START BUTTON ปุ่มเริ่มเกม มีขนาดใหญ่กว่าปกติเพื่อให้เด่น */
 .start-btn{
   font-size:20px;
   padding:15px 30px;
 }
 
+/* RESTART BUTTON ปุ่มเริ่มใหม่ ใช้สีแดงเพื่อสื่อถึงการ reset */
 .restart-btn{
   background:#c0392b;
 }
 
+/* RESTART HOVER เปลี่ยนสีเข้มขึ้นเมื่อ hover */
 .restart-btn:hover{
   background:#922b21;
 }
 
 
-/* MESSAGE */
-
+/* MESSAGE TEXT ข้อความแสดงผลลัพธ์ เช่น ถูก ผิด หรือคำใบ้ */
 #message{
   margin-top:15px;
   font-size:18px;
   font-weight:bold;
-  min-height:27px;
+  min-height:27px; /* กัน layout กระโดดเมื่อข้อความเปลี่ยน */
 }

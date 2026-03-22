@@ -1,5 +1,4 @@
-// [1] ===== CACHE DOM ELEMENTS =====
-// เก็บ Reference ของ HTML Elements ไว้ใน Object เพื่อเพิ่ม Performance (ไม่ต้องค้นหาใหม่ทุกครั้ง)
+// เก็บ reference ของ HTML elements ไว้ใน object เพื่อให้เรียกใช้สะดวกและลดการค้นหา DOM ซ้ำ
 const el = {
   leaderboard: document.getElementById("leaderboard"),
   highScore: document.getElementById("highScore"),
@@ -14,84 +13,90 @@ const el = {
   winSound: document.getElementById("winSound")
 };
 
-// [2] ===== DATA MANAGEMENT =====
-// ดึงข้อมูลจาก LocalStorage ถ้าไม่มีให้ใช้ค่าเริ่มต้น (Default Value)
+// ดึงข้อมูล leaderboard และ high score จาก localStorage
+// ถ้ายังไม่มีข้อมูล ให้ใช้ค่าเริ่มต้นแทน
 let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [0, 0, 0, 0, 0];
 let highScore = Number(localStorage.getItem("highScore")) || 0;
 
-// Game State Variables
+// ตัวแปรสถานะของเกม
 let secretNumber;
 let attempts = 0;
 let time = 0;
 let timerInterval;
 let gameOver = false;
 
-// [3] ===== INITIALIZATION =====
-// แสดงผล High Score ทันทีเมื่อโหลดหน้าเว็บ (ถ้ามี Element นั้นอยู่)
+// แสดงค่า high score ทันทีเมื่อโหลดหน้าเว็บ
 if (el.highScore) el.highScore.textContent = highScore;
 if (el.highScoreGame) el.highScoreGame.textContent = highScore;
 
-// [4] ===== LEADERBOARD LOGIC =====
 /**
- * อัปเดตการแสดงผลตารางอันดับ
- * ใช้ Method .map() และ .join() ในการสร้าง HTML String จาก Array
+ * อัปเดตการแสดงผล leaderboard บนหน้าเว็บ
+ * ใช้ map() เพื่อสร้างรายการ <li> จากข้อมูลใน array
  */
 function updateLeaderboardDisplay() {
   if (!el.leaderboard) return;
+
   el.leaderboard.innerHTML = leaderboard
     .map(score => `<li>${score}</li>`)
     .join("");
 }
 
-// [5] ===== GAME CORE FUNCTIONS =====
-
 /**
- * ฟังก์ชันเริ่มเกม: รีเซ็ตสถานะและเริ่มจับเวลา
+ * เริ่มเกมใหม่
+ * ฟังก์ชันนี้จะรีเซ็ตสถานะเกม สุ่มเลขใหม่ และเริ่มนับเวลา
  */
 function startGame() {
-  // สลับหน้าจอด้วย CSS Display และ Hidden Property
+  // ซ่อนหน้าเริ่มต้นและแสดงพื้นที่เกม
   if (el.startScreen) el.startScreen.style.display = "none";
   if (el.gameArea) el.gameArea.hidden = false;
 
-  // สุ่มตัวเลข 1 - 100
+  // สุ่มเลขลับในช่วง 1 ถึง 100
   secretNumber = Math.floor(Math.random() * 100) + 1;
 
-  // รีเซ็ตค่าสถิติต่างๆ
+  // รีเซ็ตค่าทุกอย่างก่อนเริ่มเกมรอบใหม่
   attempts = 0;
   time = 0;
   gameOver = false;
 
-  el.attempts.textContent = 0;
-  el.timer.textContent = 0;
-  el.score.textContent = 0;
-  el.message.textContent = "";
-  el.input.value = "";
+  if (el.attempts) el.attempts.textContent = 0;
+  if (el.timer) el.timer.textContent = 0;
+  if (el.score) el.score.textContent = 0;
+  if (el.message) el.message.textContent = "";
+  if (el.input) el.input.value = "";
 
-  // จัดการ Timer: เคลียร์ค่าเก่าก่อนเริ่มใหม่เพื่อป้องกัน Memory Leak
+  // ล้าง interval เดิมก่อน เพื่อไม่ให้มีตัวจับเวลาซ้อนกัน
   clearInterval(timerInterval);
+
+  // เริ่มนับเวลาทีละ 1 วินาที
   timerInterval = setInterval(() => {
     time++;
-    el.timer.textContent = time;
+    if (el.timer) el.timer.textContent = time;
   }, 1000);
 
-  el.input.focus(); // ให้ Cursor ไปอยู่ที่ช่องกรอกทันที
+  // ย้าย cursor ไปที่ช่อง input ทันที เพื่อให้เล่นต่อได้สะดวก
+  if (el.input) el.input.focus();
 }
 
 /**
- * ฟังก์ชันตรวจสอบการทายตัวเลข
+ * ตรวจสอบค่าที่ผู้เล่นทาย
+ * ถ้าค่าถูกต้องจะเข้าสู่การชนะเกม
+ * ถ้าผิดจะแสดงคำใบ้ว่าเลขมากไปหรือน้อยไป
  */
 function checkGuess() {
+  // ถ้าเกมจบแล้ว ไม่ต้องให้ตรวจซ้ำ
   if (gameOver) return;
 
   const value = el.input.value.trim();
 
-  // Validation: ตรวจสอบความถูกต้องของ Input
+  // ตรวจสอบว่าผู้ใช้กรอกข้อมูลหรือไม่
   if (!value) {
     alert("กรุณากรอกตัวเลข");
     return;
   }
 
   const guess = Number(value);
+
+  // ตรวจสอบว่าค่าอยู่ในช่วง 1 - 100 หรือไม่
   if (guess < 1 || guess > 100) {
     alert("กรุณากรอกเลข 1 - 100 เท่านั้น");
     el.input.value = "";
@@ -99,46 +104,52 @@ function checkGuess() {
     return;
   }
 
+  // เพิ่มจำนวนครั้งที่ทาย
   attempts++;
-  el.attempts.textContent = attempts;
+  if (el.attempts) el.attempts.textContent = attempts;
 
-  // เปรียบเทียบค่า (Game Logic)
+  // เปรียบเทียบค่าที่ทายกับเลขลับ
   if (guess === secretNumber) {
     handleWin();
   } else {
-    el.message.textContent = guess > secretNumber ? "📉 มากเกินไป" : "📈 น้อยเกินไป";
-    el.message.style.color = "#d32f2f"; // เปลี่ยนสีเพื่อเน้นข้อความ
+    if (el.message) {
+      el.message.textContent = guess > secretNumber ? "📉 มากเกินไป" : "📈 น้อยเกินไป";
+      el.message.style.color = "#d32f2f";
+    }
   }
 
+  // ล้าง input และโฟกัสกลับเพื่อให้กรอกใหม่ได้ทันที
   el.input.value = "";
   el.input.focus();
 }
 
 /**
- * จัดการเมื่อผู้เล่นชนะเกม
+ * จัดการเมื่อผู้เล่นทายถูก
+ * หยุดเวลา คำนวณคะแนน อัปเดต high score และ leaderboard
  */
 function handleWin() {
   clearInterval(timerInterval);
   gameOver = true;
-  el.message.textContent = "🎉 ถูกต้อง!";
-  el.message.style.color = "#2e7d32";
 
-  // การคำนวณคะแนนแบบไดนามิก
+  if (el.message) {
+    el.message.textContent = "🎉 ถูกต้อง!";
+    el.message.style.color = "#2e7d32";
+  }
+
+  // คำนวณคะแนนจากจำนวนครั้งที่ทายและเวลาที่ใช้
   let score = Math.max(0, 1000 - (attempts * 20) - (time * 5));
-  el.score.textContent = score;
+  if (el.score) el.score.textContent = score;
 
-  // เล่นเสียง (Optional Chaining เพื่อป้องกัน Error ถ้าไฟล์เสียงโหลดไม่เข้า)
-  el.winSound?.play();
-
-  // จัดการ High Score & LocalStorage
+  // อัปเดต high score ถ้าคะแนนรอบนี้สูงกว่าเดิม
   if (score > highScore) {
     highScore = score;
     localStorage.setItem("highScore", highScore);
+
     if (el.highScore) el.highScore.textContent = highScore;
     if (el.highScoreGame) el.highScoreGame.textContent = highScore;
   }
 
-  // จัดการ Leaderboard (Top 5)
+  // เพิ่มคะแนนรอบนี้เข้า leaderboard แล้วเก็บเฉพาะ 5 อันดับแรก
   leaderboard = [...leaderboard, score]
     .sort((a, b) => b - a)
     .slice(0, 5);
@@ -148,11 +159,12 @@ function handleWin() {
 }
 
 /**
- * ฟังก์ชันเริ่มใหม่
+ * เริ่มเกมใหม่อีกครั้ง
+ * ใช้ startGame() เดิมเพราะมี logic reset ครบแล้ว
  */
 function restartGame() {
   startGame();
 }
 
-// [6] ===== INITIAL LOAD =====
+// แสดง leaderboard ทันทีเมื่อเปิดหน้าเว็บ
 updateLeaderboardDisplay();

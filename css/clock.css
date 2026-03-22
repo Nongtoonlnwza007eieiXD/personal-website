@@ -1,15 +1,10 @@
-/* ======================
-CLOCK PAGE ONLY
-====================== */
+/* CLOCK PAGE ONLY กำหนดสไตล์เฉพาะสำหรับหน้าจอนาฬิกา เพื่อไม่ให้กระทบกับหน้าอื่นของเว็บไซต์ */
 .clock-page{
   min-height:100vh;
   overflow-x:hidden;
 }
 
-/* ======================
-BACKGROUND
-====================== */
-
+/* BACKGROUND สร้างพื้นหลังแบบไล่สีเคลื่อนไหว เพื่อเพิ่มบรรยากาศให้หน้าจอดูน่าสนใจมากขึ้น */
 .clock-page .background{
   position:fixed;
   width:100%;
@@ -20,14 +15,14 @@ BACKGROUND
   z-index:-2;
 }
 
+/* BACKGROUND ANIMATION ควบคุมการเคลื่อนที่ของ gradient เพื่อให้พื้นหลังดูมีชีวิต */
 @keyframes sunset{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
 
-/* particles */
-
+/* PARTICLES EFFECT เพิ่มลวดลายจุดเล็กๆ บนพื้นหลัง เพื่อให้หน้าดูมีมิติและไม่เรียบเกินไป */
 .clock-page .particles::before,
 .clock-page .particles::after{
   content:"";
@@ -41,29 +36,24 @@ BACKGROUND
   z-index:-1;
 }
 
+/* PARTICLES ANIMATION ทำให้ลายจุดค่อยๆ เคลื่อนขึ้นด้านบนอย่างต่อเนื่อง */
 @keyframes particlesMove{
   from{transform:translateY(0)}
   to{transform:translateY(-1000px)}
 }
 
-/* ======================
-FIX NAVBAR (สำคัญ)
-====================== */
-
-/* ให้ navbar ใช้สีเดิม (ไม่ให้ขาวหาย) */
+/* NAVBAR FIX ปรับสี navbar ให้ยังอ่านง่าย เพราะพื้นหลังของหน้า clock มีสีเข้ม */
 .clock-page .navbar{
   background:#ffffff;
 }
 
+/* NAVBAR TEXT กำหนดสีข้อความและโลโก้ให้ตัดกับพื้นหลังสีอ่อนของ navbar */
 .clock-page .navbar a,
 .clock-page .logo{
   color:#111;
 }
 
-/* ======================
-LAYOUT
-====================== */
-
+/* MAIN LAYOUT จัดตำแหน่งเนื้อหาหลักให้อยู่กึ่งกลางหน้าจอทั้งแนวนอนและแนวตั้ง */
 .clock-page main{
   min-height:calc(100vh - 80px);
   display:flex;
@@ -72,27 +62,26 @@ LAYOUT
   padding:40px 20px;
 }
 
+/* PAGE CONTENT กำหนดความกว้าง การจัดข้อความ และสีตัวอักษรของเนื้อหาหลัก */
 .clock-page .page{
   width:100%;
   text-align:center;
-  color:white; /* ให้เฉพาะ content เป็นสีขาว */
+  color:white;
 }
 
-/* 🔥 แก้ตัวดัน navbar */
+/* PAGE TITLE ปรับขนาดและระยะของหัวข้อหลัก เพื่อไม่ให้ชนกับ navbar */
 .clock-page .title{
   margin-top:0;
   font-size:42px;
 }
 
+/* PAGE SUBTITLE ใช้สีรองสำหรับข้อความอธิบาย เพื่อสร้างลำดับชั้นของข้อมูล */
 .clock-page .subtitle{
   color:#ffc79a;
   margin-bottom:40px;
 }
 
-/* ======================
-CONTAINER
-====================== */
-
+/* CONTENT CONTAINER จัดวางนาฬิกาและแผงข้อมูลด้านข้างด้วย flex และรองรับการขึ้นบรรทัดใหม่ */
 .clock-page .container{
   display:flex;
   justify-content:center;
@@ -101,10 +90,7 @@ CONTAINER
   flex-wrap:wrap;
 }
 
-/* ======================
-CLOCK
-====================== */
-
+/* ANALOG CLOCK FRAME สร้างกรอบนาฬิกาแบบวงกลม พร้อมเงาและพื้นหลังโปร่งแสง */
 .clock-page .analog-clock{
   width:300px;
   height:300px;
@@ -115,8 +101,7 @@ CLOCK
   background:rgba(0,0,0,0.5);
 }
 
-/* numbers */
-
+/* CLOCK NUMBERS ตำแหน่งเลขบนหน้าปัดนาฬิกาแบบอนาล็อก */
 .clock-page .number{
   position:absolute;
   font-size:18px;
@@ -136,8 +121,7 @@ CLOCK
 .n10{top:80px;left:30px}
 .n11{top:40px;left:70px}
 
-/* hands */
-
+/* CLOCK HANDS กำหนดตำแหน่งเริ่มต้นของเข็มทุกชนิดให้อยู่กึ่งกลางหน้าปัด */
 .clock-page .hand{
   position:absolute;
   bottom:50%;
@@ -146,6 +130,7 @@ CLOCK
   transform:translateX(-50%);
 }
 
+/* HOUR HAND เข็มชั่วโมงสั้นและหนากว่า เพื่อแยกจากเข็มอื่นได้ชัดเจน */
 .clock-page .hour{
   width:6px;
   height:70px;
@@ -153,6 +138,7 @@ CLOCK
   border-radius:6px;
 }
 
+/* MINUTE HAND เข็มนาทีมีความยาวมากขึ้นและสีอ่อนลงเล็กน้อย */
 .clock-page .minute{
   width:4px;
   height:100px;
@@ -160,6 +146,7 @@ CLOCK
   border-radius:6px;
 }
 
+/* SECOND HAND เข็มวินาทีใช้สี accent เพื่อให้มองเห็นการเคลื่อนไหวได้เด่นชัด */
 .clock-page .second{
   width:2px;
   height:120px;
@@ -167,6 +154,7 @@ CLOCK
   transition:transform 0.05s linear;
 }
 
+/* CLOCK CENTER จุดศูนย์กลางของหน้าปัด ใช้ปิดรอยต่อของเข็มและเพิ่มความสมจริง */
 .clock-page .center{
   position:absolute;
   width:12px;
@@ -178,16 +166,14 @@ CLOCK
   transform:translate(-50%,-50%);
 }
 
-/* ======================
-RIGHT PANEL
-====================== */
-
+/* RIGHT PANEL จัดวางข้อมูลดิจิทัลและ stopwatch เป็นแนวตั้ง */
 .clock-page .right-panel{
   display:flex;
   flex-direction:column;
   gap:30px;
 }
 
+/* INFO CARD กล่องแสดงข้อมูล ใช้พื้นหลังโปร่งแสงและ blur เพื่อให้เข้ากับธีมของหน้า */
 .clock-page .card{
   background:rgba(50,15,0,0.7);
   padding:30px 50px;
@@ -195,22 +181,21 @@ RIGHT PANEL
   backdrop-filter:blur(10px);
 }
 
+/* DIGITAL CLOCK แสดงเวลารูปแบบดิจิทัลให้เด่นชัดและอ่านง่าย */
 .clock-page .digital-time{
   font-size:48px;
   margin-bottom:10px;
 }
 
+/* STOPWATCH TEXT กำหนดขนาดตัวอักษรของเวลาจับเวลา */
 .clock-page #stopwatch{
   font-size:32px;
   margin:15px 0;
 }
 
-/* ======================
-BUTTON (FIX ACCESSIBILITY)
-====================== */
-
+/* BUTTON STYLE ปรับปุ่มให้ตัดกับพื้นหลังชัดเจนและใช้งานได้ง่าย */
 .clock-page button{
-  background:#b34700;   /* 🔥 เข้มขึ้น = contrast ผ่าน */
+  background:#b34700;
   border:none;
   color:#ffffff;
   padding:12px 20px;
@@ -220,27 +205,24 @@ BUTTON (FIX ACCESSIBILITY)
   font-weight:600;
 }
 
-/* hover */
+/* BUTTON HOVER เพิ่ม feedback เมื่อผู้ใช้ชี้เมาส์ที่ปุ่ม */
 .clock-page button:hover{
   background:#ff7a1a;
   transform:scale(1.05);
 }
 
-/* active */
+/* BUTTON ACTIVE ลดขนาดเล็กน้อยเมื่อกด เพื่อให้รู้สึกว่าปุ่มถูกใช้งานจริง */
 .clock-page button:active{
   transform:scale(0.97);
 }
 
-/* 🔥 สำคัญมาก (keyboard user) */
+/* BUTTON FOCUS รองรับ accessibility สำหรับผู้ใช้คีย์บอร์ด โดยแสดงเส้นขอบชัดเจน */
 .clock-page button:focus{
   outline:3px solid #ffffff;
   outline-offset:2px;
 }
 
-/* ======================
-RESPONSIVE
-====================== */
-
+/* RESPONSIVE TABLET ปรับ layout สำหรับหน้าจอขนาดกลางให้เรียงเนื้อหาในแนวตั้ง */
 @media(max-width:900px){
 
   .clock-page .container{

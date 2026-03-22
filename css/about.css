@@ -1,319 +1,305 @@
-/* ========================
-   ABOUT / CV SECTION
-======================== */
-
+/* ABOUT / CV SECTION กำหนดพื้นที่สำหรับส่วนแนะนำตัวและข้อมูลประวัติส่วนตัว */
 .cv-section{
-padding:100px 10%;
-background:#f5f7fb;
-color:#1a1a1a;
+  padding:100px 10%;
+  background:#f5f7fb;
+  color:#1a1a1a;
 }
 
-/* small title */
-
+/* SMALL TITLE ข้อความหัวข้อย่อยด้านบน ใช้เน้นชื่อหมวดให้เด่นก่อนเข้าสู่หัวข้อหลัก */
 .section-small{
-color:#5a2e00;   
-font-size:14px;  
-letter-spacing:2px;
-margin-bottom:10px;
-font-weight:700;
+  color:#5a2e00;
+  font-size:14px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+  font-weight:700;
 }
 
-/* main title */
-
+/* MAIN TITLE หัวข้อหลักของส่วน CV */
 .cv-section h1{
-font-size:40px;
-margin-bottom:10px;
-color:#111;
+  font-size:40px;
+  margin-bottom:10px;
+  color:#111;
 }
 
-/* subtitle */
-
+/* SUBTITLE ข้อความอธิบายใต้หัวข้อหลัก ใช้สรุปเนื้อหาโดยรวมของ section */
 .section-desc{
-color:#444; /* ✅ เข้มขึ้น */
-margin-bottom:60px;
-font-size:15px;
+  color:#444;
+  margin-bottom:60px;
+  font-size:15px;
 }
 
-/* ========================
-   TEXT 2 COLUMN
-======================== */
-
+/* TEXT 2 COLUMN จัดวางข้อความเนื้อหาแบบ 2 คอลัมน์ด้วย CSS Grid เพื่อให้อ่านง่ายและเป็นระเบียบ */
 .cv-content{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-margin-bottom:60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  margin-bottom:60px;
 }
 
+/* CV TEXT กำหนดรูปแบบย่อหน้าในส่วนเนื้อหาประวัติส่วนตัว */
 .cv-text p{
-line-height:1.9;
-color:#222; /* ✅ เข้มขึ้น */
-margin-bottom:20px;
-font-size:15px;
+  line-height:1.9;
+  color:#222;
+  margin-bottom:20px;
+  font-size:15px;
 }
 
-/* ========================
-   INFO GRID
-======================== */
-
+/* INFO GRID กล่องข้อมูลส่วนตัว เช่น ชื่อ อายุ การศึกษา หรือข้อมูลติดต่อ จัดด้วย Grid */
 .cv-info{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-margin-top:30px;
-background:white;
-padding:35px;
-border-radius:14px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+  margin-top:30px;
+  background:white;
+  padding:35px;
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
+/* INFO ITEM กำหนดระยะห่างภายในแต่ละช่องข้อมูล */
 .cv-info div{
-padding:8px 0;
+  padding:8px 0;
 }
 
+/* LABEL ชื่อหัวข้อย่อยของข้อมูลแต่ละรายการ */
 .label{
-font-size:12px;
-color:#555; /* ✅ เข้มขึ้น */
-letter-spacing:1px;
-margin-bottom:5px;
-font-weight:600;
+  font-size:12px;
+  color:#555;
+  letter-spacing:1px;
+  margin-bottom:5px;
+  font-weight:600;
 }
 
+/* INFO TEXT ข้อความรายละเอียดของข้อมูลส่วนตัว */
 .cv-info p{
-font-size:15px;
-color:#111; /* ✅ เข้มขึ้น */
+  font-size:15px;
+  color:#111;
 }
 
-/* ========================
-   SKILLS SECTION
-======================== */
-
+/* SKILLS SECTION พื้นที่แสดงทักษะต่างๆ ของผู้จัดทำเว็บไซต์ */
 .skills-section{
-padding:100px 10%;
-background:#ffffff;
-color:#1a1a1a;
+  padding:100px 10%;
+  background:#ffffff;
+  color:#1a1a1a;
 }
 
+/* SKILLS TITLE หัวข้อหลักของส่วนทักษะ */
 .skills-section h2{
-font-size:32px;
-margin-bottom:40px;
+  font-size:32px;
+  margin-bottom:40px;
 }
 
-/* skill */
-
+/* SKILL ITEM กล่องของแต่ละทักษะ */
 .skill{
-margin-bottom:25px;
+  margin-bottom:25px;
 }
 
+/* SKILL LABEL ชื่อของแต่ละทักษะ เช่น HTML CSS JavaScript */
 .skill p{
-margin-bottom:8px;
-font-size:14px;
-font-weight:600;
-color:#111; /* ✅ เพิ่ม contrast */
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:600;
+  color:#111;
 }
 
-/* skill bar */
-
+/* SKILL BAR พื้นหลังของแถบแสดงระดับความสามารถ */
 .bar{
-width:100%;
-height:12px;
-background:#d1d5db; /* ✅ เข้มขึ้น */
-border-radius:20px;
-overflow:hidden;
+  width:100%;
+  height:12px;
+  background:#d1d5db;
+  border-radius:20px;
+  overflow:hidden;
 }
 
+/* SKILL FILL ส่วนที่เติมในแถบเพื่อแสดงเปอร์เซ็นต์ของทักษะ */
 .fill{
-height:100%;
-background:#b45309; /* ✅ เข้มขึ้นมาก */
-border-radius:20px;
-text-align:right;
-font-size:10px;
-padding-right:6px;
-color:#ffffff;
-line-height:12px;
-font-weight:700;
+  height:100%;
+  background:#b45309;
+  border-radius:20px;
+  text-align:right;
+  font-size:10px;
+  padding-right:6px;
+  color:#ffffff;
+  line-height:12px;
+  font-weight:700;
 }
 
-/* skill percent */
-
+/* SKILL PERCENT กำหนดความกว้างของแต่ละทักษะตามระดับที่ต้องการแสดง */
 .html{ width:80%; }
 .css{ width:70%; }
 .js{ width:60%; }
 .network{ width:50%; }
 .cyber{ width:50%; }
 
-/* ========================
-   EDUCATION SECTION
-======================== */
-
+/* EDUCATION SECTION ส่วนแสดงประวัติการศึกษาในรูปแบบ timeline */
 .education-section{
-padding:100px 10%;
-background:#f5f7fb;
+  padding:100px 10%;
+  background:#f5f7fb;
 }
 
+/* SECTION TITLE หัวข้อหลักของ section เช่น Education */
 .section-title{
-font-size:36px;
-margin:10px 0;
-color:#111;
+  font-size:36px;
+  margin:10px 0;
+  color:#111;
 }
 
+/* TIMELINE เส้นหลักแนวตั้งสำหรับจัดลำดับเหตุการณ์ตามเวลา */
 .timeline{
-position:relative;
-margin-top:50px;
-padding-left:40px;
-border-left:3px solid #cc7000; /* ✅ เข้มขึ้น */
+  position:relative;
+  margin-top:50px;
+  padding-left:40px;
+  border-left:3px solid #cc7000;
 }
 
-/* timeline item */
-
+/* TIMELINE ITEM แต่ละรายการในเส้นเวลา พร้อมเอฟเฟกต์เลื่อนขึ้นเมื่อแสดงผล */
 .timeline-item{
-position:relative;
-margin-bottom:50px;
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 0.8s forwards;
+  position:relative;
+  margin-bottom:50px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 0.8s forwards;
 }
 
+/* ANIMATION DELAY กำหนดเวลาเริ่ม animation ของแต่ละรายการให้แสดงทีละอัน */
 .timeline-item:nth-child(1){animation-delay:0.2s;}
 .timeline-item:nth-child(2){animation-delay:0.4s;}
 .timeline-item:nth-child(3){animation-delay:0.6s;}
 
-/* dot */
-
+/* TIMELINE DOT จุดวงกลมที่ใช้แทนตำแหน่งของแต่ละเหตุการณ์บน timeline */
 .timeline-dot{
-position:absolute;
-left:-10px;
-top:5px;
-width:16px;
-height:16px;
-background:#cc7000; /* ✅ เข้มขึ้น */
-border-radius:50%;
+  position:absolute;
+  left:-10px;
+  top:5px;
+  width:16px;
+  height:16px;
+  background:#cc7000;
+  border-radius:50%;
 }
 
-/* content */
-
+/* TIMELINE CONTENT กล่องข้อความของแต่ละรายการการศึกษา */
 .timeline-content{
-background:white;
-padding:20px 25px;
-border-radius:10px;
-box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  background:white;
+  padding:20px 25px;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
 }
 
+/* YEAR ข้อความปีหรือช่วงเวลาในการศึกษา */
 .year{
-font-size:14px;
-color:#444; /* ✅ เข้มขึ้น */
-font-weight:600;
+  font-size:14px;
+  color:#444;
+  font-weight:600;
 }
 
+/* TIMELINE HEADING ชื่อสถานศึกษา หรือชื่อระดับการศึกษา */
 .timeline-content h3{
-margin:6px 0;
-font-size:20px;
-color:#111;
+  margin:6px 0;
+  font-size:20px;
+  color:#111;
 }
 
+/* TIMELINE DESCRIPTION รายละเอียดเพิ่มเติมของแต่ละช่วงการศึกษา */
 .timeline-content p{
-color:#333; /* ✅ เข้มขึ้น */
-font-size:14px;
-line-height:1.7;
+  color:#333;
+  font-size:14px;
+  line-height:1.7;
 }
 
-/* animation */
-
+/* FADE UP ANIMATION ทำให้รายการค่อยๆ ปรากฏและเลื่อนขึ้นอย่างนุ่มนวล */
 @keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-/* ========================
-   CONTACT SECTION
-======================== */
-
+/* CONTACT SECTION ส่วนแสดงช่องทางการติดต่อ โดยใช้พื้นหลังสีเข้มให้ตัดกับส่วนอื่น */
 .contact-section{
-background:#0a0a0a;
-color:white;
-padding:100px 10%;
+  background:#0a0a0a;
+  color:white;
+  padding:100px 10%;
 }
 
+/* CONTACT TITLE หัวข้อหลักของส่วนการติดต่อ */
 .contact-section h2{
-font-size:32px;
-margin-bottom:50px;
+  font-size:32px;
+  margin-bottom:50px;
 }
 
+/* CONTACT LIST กล่องครอบรายการช่องทางการติดต่อ */
 .contact-list{
-max-width:500px;
+  max-width:500px;
 }
 
-/* card */
-
+/* CONTACT ITEM การ์ดแต่ละรายการของช่องทางติดต่อ เช่น Email GitHub หรือ Phone */
 .contact-item{
-display:flex;
-align-items:center;
-gap:20px;
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
-text-decoration:none;
-color:white;
-transition:0.3s;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
 }
 
+/* CONTACT ITEM HOVER เพิ่มเอฟเฟกต์พื้นหลังและขยับเล็กน้อยเมื่อชี้เมาส์ */
 .contact-item:hover{
-background:#1f1f1f;
-transform:translateX(5px);
+  background:#1f1f1f;
+  transform:translateX(5px);
 }
 
-/* icon */
-
+/* CONTACT ICON วงกลมไอคอนของแต่ละช่องทางการติดต่อ */
 .contact-icon{
-width:60px;
-height:60px;
-background:#3b2a1a; /* ✅ เข้มขึ้น */
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-color:#ffb347;
-flex-shrink:0;
+  width:60px;
+  height:60px;
+  background:#3b2a1a;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color:#ffb347;
+  flex-shrink:0;
 }
 
-/* text */
-
+/* CONTACT TEXT TITLE ชื่อของช่องทางการติดต่อ */
 .contact-text h3{
-margin:0;
-font-size:18px;
-color:#ffffff;
+  margin:0;
+  font-size:18px;
+  color:#ffffff;
 }
 
+/* CONTACT TEXT DESCRIPTION รายละเอียด เช่น อีเมลหรือชื่อบัญชีผู้ใช้ */
 .contact-text p{
-margin:5px 0 0;
-color:#e5e5e5; /* ✅ เข้มขึ้น */
-font-size:15px;
+  margin:5px 0 0;
+  color:#e5e5e5;
+  font-size:15px;
 }
 
-/* ========================
-   RESPONSIVE
-======================== */
-
+/* RESPONSIVE TABLET ปรับ layout สำหรับหน้าจอขนาดกลางให้คอลัมน์ลดลง */
 @media (max-width:900px){
-.cv-content{ grid-template-columns:1fr; }
-.cv-info{ grid-template-columns:1fr 1fr; }
+  .cv-content{ grid-template-columns:1fr; }
+  .cv-info{ grid-template-columns:1fr 1fr; }
 }
 
+/* RESPONSIVE MOBILE ปรับขนาด padding และทำให้ข้อมูลส่วนตัวเรียงเป็นคอลัมน์เดียวบนมือถือ */
 @media (max-width:500px){
-.cv-info{ grid-template-columns:1fr; }
-.cv-section{ padding:70px 6%; }
-.skills-section{ padding:70px 6%; }
+  .cv-info{ grid-template-columns:1fr; }
+  .cv-section{ padding:70px 6%; }
+  .skills-section{ padding:70px 6%; }
 }
 
+/* RESPONSIVE TIMELINE ลดระยะด้านซ้ายและ padding ของกล่องเนื้อหาบนหน้าจอเล็ก */
 @media (max-width:768px){
-.timeline{ padding-left:25px; }
-.timeline-content{ padding:18px; }
+  .timeline{ padding-left:25px; }
+  .timeline-content{ padding:18px; }
 }
 
+/* RESPONSIVE CONTACT ปรับระยะห่างของ section และ card ในส่วนติดต่อให้เหมาะกับมือถือ */
 @media (max-width:600px){
-.contact-section{ padding:80px 8%; }
-.contact-item{ padding:15px; }
+  .contact-section{ padding:80px 8%; }
+  .contact-item{ padding:15px; }
 }
